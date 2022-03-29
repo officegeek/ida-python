@@ -7,3 +7,9 @@ parts:
   - caption: Videregående
     chapters:
     - file: videregående/README.md
+    - file: videregående/vsc.md
+    - file: videregående/kontrolstrukturer.md
+    - file: videregående/funktioner.md
+    - file: videregående/databaser.md
+    - file: videregående/oop.md
+    - file: videregående/dash_demo.md

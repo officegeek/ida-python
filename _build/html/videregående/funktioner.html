@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funktioner &#8212; Python - IDA</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Databaser" href="databaser.html" />
+    <link rel="prev" title="Kontrolstrukturer" href="kontrolstrukturer.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python - IDA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Python Seminar IDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Videregående
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Python programmering - Videregående - IDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vsc.html">
+   Visual Studio Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kontrolstrukturer.html">
+   Kontrolstrukturer
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Funktioner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="databaser.html">
+   Databaser
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop.html">
+   Object Oriented Programming i Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dash_demo.html">
+   Dash
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/videregående/funktioner.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opret-en-funktion">
+   Opret en funktion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brug-af-en-funktion">
+   Brug af en funktion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arguments">
+   Arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#default-argument">
+   Default Argument
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#return-values">
+   Return Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-local-variables">
+   Global &lt;&gt; Local variables
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Funktioner</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opret-en-funktion">
+   Opret en funktion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brug-af-en-funktion">
+   Brug af en funktion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arguments">
+   Arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#default-argument">
+   Default Argument
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#return-values">
+   Return Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-local-variables">
+   Global &lt;&gt; Local variables
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="funktioner">
+<h1>Funktioner<a class="headerlink" href="#funktioner" title="Permalink to this headline">¶</a></h1>
+<p>En funktion er en code, der bruges til at udføre en enkelt, relateret handling.</p>
+<p>Funktioner giver bedre modularity i din code og en høj grad af kode genbrug.</p>
+<p>Python har mange indbyggede funktioner som f.eks. <strong>print()</strong> osv. men du kan også lave dine egne funktioner. Disse funktioner kaldes <strong>user-defined functions.</strong></p>
+<div class="section" id="opret-en-funktion">
+<h2>Opret en funktion<a class="headerlink" href="#opret-en-funktion" title="Permalink to this headline">¶</a></h2>
+<p>Du skal bruge <strong>def</strong> keyword når du vil opretter en funktion.</p>
+<p><strong>Eksempel</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_funktion</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hej&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="brug-af-en-funktion">
+<h2>Brug af en funktion<a class="headerlink" href="#brug-af-en-funktion" title="Permalink to this headline">¶</a></h2>
+<p>Når du vil bruge en funktion skal du bare skrive navnet efterfulgt af ()</p>
+<p><strong>Eksempel</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opret</span>
+<span class="k">def</span> <span class="nf">min_funktion</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hej&#39;</span><span class="p">)</span>
+
+<span class="c1"># Kald/Brug</span>
+<span class="n">min_funktion</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<p>Du kan overføre argumenter til funktioner. Du kan tilføje flere argumenter til en funktion, de skal bare adskilles af et <strong>,</strong></p>
+<p><strong>Et argument</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_funktion</span><span class="p">(</span><span class="n">fnavn</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hej </span><span class="si">{</span><span class="n">fnavn</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Flere argumenter</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_funktion</span><span class="p">(</span><span class="n">fnavn</span><span class="p">,</span> <span class="n">lname</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hej </span><span class="si">{</span><span class="n">fnavn</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">lname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-argument">
+<h2>Default Argument<a class="headerlink" href="#default-argument" title="Permalink to this headline">¶</a></h2>
+<p>Det er også muligt at angive en Default værdi, på den måde behøver du ikke at angive en værdi.</p>
+<p><strong>Med flere Arguments + Default</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_funktion_3</span><span class="p">(</span><span class="n">fnavn</span><span class="p">,</span> <span class="n">lname</span><span class="p">,</span> <span class="n">ven</span> <span class="o">=</span> <span class="s1">&#39;Ja&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hej </span><span class="si">{</span><span class="n">fnavn</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">lname</span><span class="si">}</span><span class="s1">, Ven: </span><span class="si">{</span><span class="n">ven</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Kald/Brug</span>
+<span class="n">min_funktion_3</span><span class="p">(</span><span class="s1">&#39;Tue&#39;</span><span class="p">,</span> <span class="s1">&#39;Hellstern&#39;</span><span class="p">)</span>
+<span class="n">min_funktion_3</span><span class="p">(</span><span class="s1">&#39;Ole&#39;</span><span class="p">,</span> <span class="s1">&#39;Olsen&#39;</span><span class="p">,</span> <span class="s1">&#39;Nej&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-values">
+<h2>Return Values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<p>En funktion kan også returnere en <em>værdi</em> ved at bruge et <strong>return</strong> statement. Det kan f.eks være en beregning du gerne vil have resultatet af.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_beregning</span><span class="p">(</span><span class="n">tal1</span><span class="p">,</span> <span class="n">tal2</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">tal1</span> <span class="o">+</span> <span class="n">tal2</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="n">min_total</span> <span class="o">=</span> <span class="n">min_beregning</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_total</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">min_funktion_navn</span><span class="p">(</span><span class="n">fnavn</span><span class="p">,</span> <span class="n">lname</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hej </span><span class="si">{</span><span class="n">fnavn</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">lname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fnavn</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">lname</span>
+
+<span class="n">navn</span> <span class="o">=</span> <span class="n">min_funktion_navn</span><span class="p">(</span><span class="s1">&#39;Per&#39;</span><span class="p">,</span> <span class="s1">&#39;Hansen&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">navn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-local-variables">
+<h2>Global &lt;&gt; Local variables<a class="headerlink" href="#global-local-variables" title="Permalink to this headline">¶</a></h2>
+<p>Variabler, der er defineret inde i en funktion, er kun tilgængelige lokalt, og dem, der er defineret udenfor, har et globalt omfang.</p>
+<p>Dette betyder, at lokale variabler kun kan tilgås inden for den funktion, hvori de er erklæret, mens globale variabler kan tilgås i hele programmet og af alle funktioner.</p>
+<p>Når du kalder en funktion, bringes de variable, der er erklæret inde i den, ind i omfanget.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette er en global variable.</span>
+<span class="n">salgspris</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+
+<span class="c1"># Function</span>
+<span class="k">def</span> <span class="nf">rabat</span><span class="p">(</span><span class="n">salg_uden_rabat</span><span class="p">,</span> <span class="n">rabat</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">salgspris</span> <span class="o">=</span> <span class="n">salg_uden_rabat</span> <span class="o">-</span> <span class="p">(</span><span class="n">salg_uden_rabat</span><span class="o">*</span><span class="n">rabat</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Print af salgspris inde fra funktionen: </span><span class="si">{</span><span class="n">salgspris</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">salgspris</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Print uden for funktionen, global variabel: </span><span class="si">{</span><span class="n">salgspris</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">ny_pris</span> <span class="o">=</span> <span class="n">rabat</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ny_pris</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./videregående"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="kontrolstrukturer.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Kontrolstrukturer</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="databaser.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Databaser</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
