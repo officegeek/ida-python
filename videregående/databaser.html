@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Databaser &#8212; Python - IDA</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Object Oriented Programming i Python" href="oop.html" />
+    <link rel="prev" title="Funktioner" href="funktioner.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python - IDA</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Python Seminar IDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Videregående
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Python programmering - Videregående - IDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vsc.html">
+   Visual Studio Code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kontrolstrukturer.html">
+   Kontrolstrukturer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="funktioner.html">
+   Funktioner
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Databaser
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop.html">
+   Object Oriented Programming i Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dash_demo.html">
+   Dash
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/videregående/databaser.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sqlalchemy">
+   SQLAlchemy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#northwind">
+   Northwind
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datamodel-py">
+   datamodel.py
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#app-py">
+   app.py
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#config-ini">
+   config.ini
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Databaser</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sqlalchemy">
+   SQLAlchemy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#northwind">
+   Northwind
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datamodel-py">
+   datamodel.py
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#app-py">
+   app.py
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#config-ini">
+   config.ini
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="databaser">
+<h1>Databaser<a class="headerlink" href="#databaser" title="Permalink to this headline">¶</a></h1>
+<p>De data som du skal bruge i din Python kan meget vel være i en database.</p>
+<p>I Python er der flere forskellige muligheder for at oprette forbindelse til en database og hente data ud.</p>
+<p>Jer kommer tu til at oprette forbindelse til en MySQL server, men Python understøtter alle de gængse database servere.</p>
+<p>For at gøre det nemt, er det en MySQL Server der er hostede på Microsoft Azure jeg brugere som eksempel.</p>
+<p>For at oprette forbindelse til denne server skal du bruge følgende oplysninger:</p>
+<ul class="simple">
+<li><p>Server:ida-database.mysql.database.azure.com</p></li>
+<li><p>Brugernavn: <udleveres></p></li>
+<li><p>Password: <udleveres></p></li>
+</ul>
+<p>Da en sådan database server kan misbruges, får du udleveret <em>brugernavn</em> og <em>password</em> på seminaret og disse vil <strong>kun være gyldige den dag</strong>.</p>
+<p>Jeg har valgt at opdele denne kode i 2 Python filer og en config fil.</p>
+<p>Denne opdeling er fortaget så der er en naturlig opdeling mellem <em>adgangen</em> til databasen og <em>brugen</em> af data.</p>
+<p><strong>Filer</strong></p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="http://app.py">app.py</a></strong> - <em>Brugen af data - kan f.eks. være data analyse</em></p></li>
+<li><p><strong><a class="reference external" href="http://datamodel.py">datamodel.py</a></strong> - <em>Adgang til MySQL serveren</em></p></li>
+<li><p><strong>config.ini</strong> - <em>Brugernavn og Password</em></p></li>
+</ul>
+<div class="section" id="sqlalchemy">
+<h2>SQLAlchemy<a class="headerlink" href="#sqlalchemy" title="Permalink to this headline">¶</a></h2>
+<p>Jeg brugere Python modulet SQLAlchemy til at oprette adgangen til databasen.</p>
+<p><em>SQLAlchemy</em> er et Python modul, der letter kommunikationen mellem Python programmer og databaser. Oftest bruges dette bibliotek som et ORM-værktøj (<em>Object Relational Mapper</em>), der oversætter Python klasser til tabeller i en relationel database og automatisk konverterer funktions kald til SQL-sætninger.</p>
+<p>Læs mere her <a class="reference external" href="https://www.sqlalchemy.org">www.sqlalchemy.org</a></p>
+</div>
+<div class="section" id="northwind">
+<h2>Northwind<a class="headerlink" href="#northwind" title="Permalink to this headline">¶</a></h2>
+<p>Den demo database jeg brugere er en Microsoft database ved navn <em>Northwind</em>.</p>
+<p>Du kan se et ER-diagram over databasen her.</p>
+<p><img alt="" src="../_images/northwind_er.jpg" /></p>
+<p>Det er altid en fordel hvis du har et ER-diagram når du skal hente data ud af en database.</p>
+</div>
+<div class="section" id="datamodel-py">
+<h2><a class="reference external" href="http://datamodel.py">datamodel.py</a><a class="headerlink" href="#datamodel-py" title="Permalink to this headline">¶</a></h2>
+<p>Det er i <strong><a class="reference external" href="http://datamodel.py">datamodel.py</a></strong> forbindelsen til MySQL serveren oprettes og det er også her vi henter data.</p>
+<p><strong><a class="reference external" href="http://datamodel.py">datamodel.py</a></strong> er opdelt i flere forskellige funktioner. Den første er <strong>connect()</strong> som læser information fra config.ini filen og opretter forbindelsen til serveren.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">connect</span><span class="p">():</span>
+    <span class="n">db_conn</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Læs config.ini filen</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;config.ini&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Opret forbindelse til MySQL</span>
+        <span class="n">db_connection_str</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mysqlini&#39;</span><span class="p">][</span><span class="s1">&#39;conn_string&#39;</span><span class="p">]</span>
+        <span class="n">db_conn</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">db_connection_str</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">db_conn</span>
+
+    <span class="k">except</span> <span class="n">exc</span><span class="o">.</span><span class="n">SQLAlchemyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">db_conn</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span> <span class="c1"># Luk forbindelsen</span>
+</pre></div>
+</div>
+<p>Når forbindelsen er oprettet skal vi hente data. Dette har jeg også valgt at opdele i funktioner.</p>
+<p>Det første datasæt er følgende felter fra Employees tabellen:</p>
+<ul class="simple">
+<li><p>EmployeeID</p></li>
+<li><p>FirstName</p></li>
+<li><p>LastName</p></li>
+</ul>
+<p>Dette gøres ved hjælp af denne SQL sætning</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">EmployeeID</span><span class="p">,</span><span class="w"> </span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span><span class="n">LastName</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Vi vil have overført data til en Pandas dataframe, hvilket gøres nemt med metoden <strong>read_sql</strong> fra Pandas</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_employees</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
+    <span class="n">df_Employees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT EmployeeID, FirstName, LastName FROM employees;&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Employees</span>
+</pre></div>
+</div>
+<p>Hvis det er en mere kompleks SQL sætning du skal have afviklet vil det tit være en fordel at oprette et View ud fra denne SQL sætning.</p>
+<p>Her er et eksempel på en SQL sætning der finder salget fordelt på <em>måneder</em> og <em>produkter</em>.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"></span>
+<span class="w">	</span><span class="n">products</span><span class="p">.</span><span class="n">ProductName</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">month</span><span class="p">(</span><span class="n">orders</span><span class="p">.</span><span class="n">OrderDate</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Order_Month</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">orderdetails</span><span class="p">.</span><span class="n">UnitPrice</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">Quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Order_Total</span><span class="w"></span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="w"></span>
+<span class="w">    </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orderdetails</span><span class="w"></span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="n">ProductID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">ProductID</span><span class="w"></span>
+<span class="w">    </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span><span class="w"></span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">OrderID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">OrderID</span><span class="w"></span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="n">ProductName</span><span class="p">,</span><span class="w"> </span><span class="n">Order_Month</span><span class="w"></span>
+<span class="w">    </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Order_Month</span><span class="p">,</span><span class="w"> </span><span class="n">Order_Total</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ud fra denne har jeg oprette et View med navnet: <strong>Products_Sale</strong></p>
+<p>Det gør den SQL sætning jeg skal afvikle i Python meget mindre kompleks.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Products_Sale</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Python funktionen kommer til at se sådan ud</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_product_sales</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
+    <span class="n">df_Product_Sale</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Products_Sale;&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Product_Sale</span>
+</pre></div>
+</div>
+<p>Den komplette <strong><a class="reference external" href="http://datamodel.py">datamodel.py</a></strong> fil</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">product</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">exc</span>
+<span class="kn">import</span> <span class="nn">configparser</span>
+
+<span class="c1"># MySQL forbindelsen</span>
+<span class="k">def</span> <span class="nf">connect</span><span class="p">():</span>
+    <span class="n">db_conn</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Læs config.ini filen</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;config.ini&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Opret forbindelse til MySQL</span>
+        <span class="n">db_connection_str</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mysql&#39;</span><span class="p">][</span><span class="s1">&#39;conn_string&#39;</span><span class="p">]</span>
+        <span class="n">db_conn</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">db_connection_str</span><span class="p">)</span>
+    
+        <span class="k">return</span> <span class="n">db_conn</span>
+
+    <span class="k">except</span> <span class="n">exc</span><span class="o">.</span><span class="n">SQLAlchemyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">db_conn</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span> <span class="c1"># Luk forbindelsen</span>
+
+<span class="c1"># Employees</span>
+<span class="k">def</span> <span class="nf">get_employees</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
+    <span class="n">df_Employees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT EmployeeID, FirstName, LastName FROM employees;&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Employees</span>
+
+<span class="c1"># Product sales</span>
+<span class="k">def</span> <span class="nf">get_product_sales</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
+    <span class="n">df_Product_Sale</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM Products_Sale;&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_Product_Sale</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-py">
+<h2><a class="reference external" href="http://app.py">app.py</a><a class="headerlink" href="#app-py" title="Permalink to this headline">¶</a></h2>
+<p>Dette er <em>hoved</em> Python filen, det er her du starter applikationen.</p>
+<p>For at hente data skal der oprettes forbindelse til <strong><a class="reference external" href="http://datamodel.py">datamodel.py</a></strong>, hvilket gøres med: <strong>import datamodel</strong></p>
+<p>Derefter skal de to dataframes hentes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import</span>
+<span class="kn">import</span> <span class="nn">datamodel</span>
+
+<span class="c1"># Hent data</span>
+<span class="n">df_Employees</span> <span class="o">=</span> <span class="n">datamodel</span><span class="o">.</span><span class="n">get_employees</span><span class="p">()</span>
+<span class="n">df_Product_Sale</span> <span class="o">=</span> <span class="n">datamodel</span><span class="o">.</span><span class="n">get_product_sales</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Du kan nu arbejde videre med de data du har hentet. I dette eksempel gør jeg:</p>
+<ul class="simple">
+<li><p>Et diagram og eksportere det til en HTML fil</p></li>
+<li><p>Export til to Excel filer</p></li>
+</ul>
+<p>Den komplette <strong><a class="reference external" href="http://app.py">app.py</a></strong> fil</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+<span class="c1"># Brug/Access datamodel</span>
+<span class="kn">import</span> <span class="nn">datamodel</span>
+
+<span class="c1"># Hent data</span>
+<span class="n">df_Employees</span> <span class="o">=</span> <span class="n">datamodel</span><span class="o">.</span><span class="n">get_employees</span><span class="p">()</span>
+<span class="n">df_Product_Sale</span> <span class="o">=</span> <span class="n">datamodel</span><span class="o">.</span><span class="n">get_product_sales</span><span class="p">()</span>
+
+<span class="c1"># Vis data - print</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_Employees</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_Product_Sale</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Diagram - Employee Sales - Plotly</span>
+<span class="n">fig_product_sale</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">df_Product_Sale</span><span class="p">,</span> 
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;ProductName&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Order_Total&#39;</span><span class="p">,</span> <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Order_Month&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Salg pr. produkt&#39;</span><span class="p">)</span>
+
+<span class="c1"># Export til Excel</span>
+<span class="n">df_Employees</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;./Employees.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">df_Product_Sale</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;./ProductSale.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Eksport Diagram til html</span>
+<span class="n">fig_product_sale</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;./ProductSale.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="config-ini">
+<h2>config.ini<a class="headerlink" href="#config-ini" title="Permalink to this headline">¶</a></h2>
+<p>Denne fil indeholder informationerne til at oprette forbindelse til MySQL databasen</p>
+<p>En <strong>.ini</strong> file er opdelt med en sektion - <strong>[sektion]</strong> og en <strong>key</strong> - <strong>conn_string</strong></p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[mysql]</span><span class="w"></span>
+<span class="na">conn_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">mysql://&lt;brugernavn&gt;:&lt;password&gt;@ida-database.mysql.database.azure.com:3306/northwind</span><span class="w"></span>
+</pre></div>
+</div>
+<p><em>Brugernavn</em> og <em>Password</em> udleveres på seminaret.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./videregående"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="funktioner.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Funktioner</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="oop.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Object Oriented Programming i Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
