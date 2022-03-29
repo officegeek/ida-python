@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI &amp; Machine Learning 27-04-2021 &#8212; Teaching Kea</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Teaching Kea</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to my teaching page at Kea
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/4-sem/06-Machine_Learning_1/AI_Machine_Learning_SLIDE.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://officegeek.github.io/ida-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://officegeek.github.io/ida-python//issues/new?title=Issue%20on%20page%20%2F4-sem/06-Machine_Learning_1/AI_Machine_Learning_SLIDE.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   AI &amp; Machine Learning  27-04-2021
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agenda">
+     Agenda
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-brain">
+   The Brain
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-fit">
+   Unsupervised Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning">
+   Unsupervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">
+   Supervised vs. Unsupervised learning
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Supervised vs. Unsupervised learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-examples">
+   Unsupervised Learning - Examples
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-iris-dataset">
+   Example - Iris dataset
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering-k-means">
+   Clustering - K-means
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hierarchical-clustering">
+   Hierarchical clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-means-vs-hierarchical-clustering">
+   K-means vs. Hierarchical clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-sne-clustering">
+   t-SNE clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-sne-learning-rate">
+   t-SNE - Learning rate
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbscan-clustering">
+   DBSCAN clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-fit">
+   Reinforcement Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-example">
+   Reinforcement Learning - Example
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>AI & Machine Learning  27-04-2021</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   AI &amp; Machine Learning  27-04-2021
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agenda">
+     Agenda
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-brain">
+   The Brain
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-fit">
+   Unsupervised Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning">
+   Unsupervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">
+   Supervised vs. Unsupervised learning
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Supervised vs. Unsupervised learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-examples">
+   Unsupervised Learning - Examples
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-iris-dataset">
+   Example - Iris dataset
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering-k-means">
+   Clustering - K-means
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hierarchical-clustering">
+   Hierarchical clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-means-vs-hierarchical-clustering">
+   K-means vs. Hierarchical clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-sne-clustering">
+   t-SNE clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-sne-learning-rate">
+   t-SNE - Learning rate
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbscan-clustering">
+   DBSCAN clustering
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-fit">
+   Reinforcement Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-example">
+   Reinforcement Learning - Example
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><img alt="bg right:30% 245%" src="https://github.com/officegeek/image/raw/main/agenda.jpg" /></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="ai-machine-learning-27-04-2021">
+<h1>AI &amp; Machine Learning  27-04-2021<a class="headerlink" href="#ai-machine-learning-27-04-2021" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="agenda">
+<h2>Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Unsupervised Learning</p></li>
+<li><p>Unsupervised Learning - Example - Iris dataset</p>
+<ul>
+<li><p>Clustering - K-means</p></li>
+<li><p>Hierarchical clustering</p></li>
+<li><p>t-SNE clustering</p></li>
+<li><p>DBSCAN clustering</p></li>
+</ul>
+</li>
+</ul>
+<!-- _footer: Tue Hellstern © 2021-->
+<hr class="docutils" />
+<p><img alt="bg right:72% 66%" src="https://github.com/officegeek/image/raw/main/TheBrain.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="the-brain">
+<h1>The Brain<a class="headerlink" href="#the-brain" title="Permalink to this headline">¶</a></h1>
+<!-- _footer: https://www.doxonline.dk/film/the-brain-->
+<hr class="docutils" />
+<!-- _class: invert -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning-fit">
+<h1>Unsupervised Learning <!--fit--><a class="headerlink" href="#unsupervised-learning-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning">
+<h1>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this headline">¶</a></h1>
+<p>Unsupervised learning is a class of machine learning (ML) techniques used to find patterns in data.</p>
+<p>The data given to unsupervised algorithms is not labelled, which means only the input variables (x) are given with no corresponding output variables.</p>
+<p>In unsupervised learning, the algorithms are left to discover interesting structures in the data on their own.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="supervised-vs-unsupervised-learning">
+<h1>Supervised vs. Unsupervised learning<a class="headerlink" href="#supervised-vs-unsupervised-learning" title="Permalink to this headline">¶</a></h1>
+<p>In <strong>supervised</strong> learning, the system tries to <strong>learn from the previous</strong> examples given.</p>
+<p>In <strong>unsupervised</strong> learning, the system <strong>attempts to find the patterns</strong> directly from the example given.</p>
+<p><em>If the dataset is <strong>labeled</strong> it is a <strong>supervised</strong> problem, and if the dataset is <strong>unlabelled</strong> then it is an <strong>unsupervised</strong> problem.</em></p>
+<hr class="docutils" />
+<p><img alt="bg right:50% 99%" src="https://github.com/officegeek/image/raw/main/supervised-vs-unsupervised-learning.png" /></p>
+<div class="section" id="id1">
+<h2>Supervised vs. Unsupervised learning<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Left image is an example of <strong>supervised learning</strong> (<em>regression techniques used to find the best fit line between the features</em>).</p>
+<p>In <strong>unsupervised learning</strong> the inputs are segregated based on features and the prediction is based on which cluster it belonged to.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning-examples">
+<h1>Unsupervised Learning - Examples<a class="headerlink" href="#unsupervised-learning-examples" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Customer segmentation, or understanding different customer groups around which to build marketing or other business strategies</p></li>
+<li><p>Recommender systems, which involve grouping together users with similar viewing patterns in order to recommend similar content.</p></li>
+<li><p>Anomaly detection, including fraud detection or detecting defective mechanical parts - <em>predictive maintenance</em></p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:30% 90%" src="https://github.com/officegeek/image/raw/main/iris_1.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="example-iris-dataset">
+<h1>Example - Iris dataset<a class="headerlink" href="#example-iris-dataset" title="Permalink to this headline">¶</a></h1>
+<p>In this example, we’ll use the Iris dataset to make predictions.
+The dataset contains a set of 150 records under four attributes  —  <strong>petal length</strong>, <strong>petal width</strong>, <strong>sepal length</strong>, <strong>sepal width</strong>, and <strong>three iris classes</strong>: <strong>setosa</strong>, <strong>virginica</strong> and <strong>versicolor</strong>.</p>
+<p>We’ll feed the four features of our flower to the unsupervised algorithm and it will predict which class the iris belongs to.</p>
+<p>We use the scikit-learn library in Python to load the Iris dataset and matplotlib for data visualization.</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Importing Modules
+from sklearn import datasets
+import matplotlib.pyplot as plt
+
+# Loading dataset
+iris_df = datasets.load_iris()
+
+# Available methods on dataset
+print(dir(iris_df))
+
+# Features
+print(iris_df.feature_names)
+
+# Targets
+print(iris_df.target)
+
+# Target Names
+print(iris_df.target_names)
+label = {0: &#39;red&#39;, 1: &#39;blue&#39;, 2: &#39;green&#39;}
+
+# Dataset Slicing
+x_axis = iris_df.data[:, 0]  # Sepal Length
+y_axis = iris_df.data[:, 2]  # Sepal Width
+
+# Plotting
+plt.scatter(x_axis, y_axis, c=iris_df.target)
+plt.show()
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="clustering-k-means">
+<h1>Clustering - K-means<a class="headerlink" href="#clustering-k-means" title="Permalink to this headline">¶</a></h1>
+<p>In clustering, the data is divided into several groups with similar traits.</p>
+<p>K-means clustering is an iterative clustering algorithm that aims to find local maxima in each iteration.</p>
+<p>In the iris example, we know there are three classes involved, so we program the algorithm to group the data into three classes by passing the parameter <strong>n_clusters</strong> into our k-means model.</p>
+<p>Randomly, three points (inputs) are assigned into three clusters.</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Importing Modules
+from sklearn import datasets
+from sklearn.cluster import KMeans
+
+# Loading dataset
+iris_df = datasets.load_iris()
+
+# Declaring Model
+model = KMeans(n_clusters=3)
+
+# Fitting Model
+model.fit(iris_df.data)
+
+# Predicitng a single input
+predicted_label = model.predict([[7.2, 3.5, 0.8, 1.6]])
+
+# Prediction on the entire data
+all_predictions = model.predict(iris_df.data)
+
+# Printing Predictions
+print(predicted_label)
+print(all_predictions)
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><img alt="bg right:40% 90%" src="https://github.com/officegeek/image/raw/main/hierarchical_clustering.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="hierarchical-clustering">
+<h1>Hierarchical clustering<a class="headerlink" href="#hierarchical-clustering" title="Permalink to this headline">¶</a></h1>
+<p>hierarchical clustering is an algorithm that builds a hierarchy of clusters. This algorithm begins with all the data assigned to a cluster, then the two closest clusters are joined into the same cluster.</p>
+<p>The algorithm ends when only a single cluster is left.</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Importing Modules
+from scipy.cluster.hierarchy import linkage, dendrogram
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Reading the DataFrame
+seeds_df = pd.read_csv(&#39;seeds-less-rows.csv&#39;)
+
+# Remove the grain species from the DataFrame, save for later
+varieties = list(seeds_df.pop(&#39;grain_variety&#39;))
+
+# Extract the measurements as a NumPy array
+samples = seeds_df.values
+
+&quot;&quot;&quot;
+    Perform hierarchical clustering on samples using the
+    linkage() function with the method=&#39;complete&#39; keyword argument.
+    Assign the result to mergings.
+&quot;&quot;&quot;
+mergings = linkage(samples, method=&#39;complete&#39;)
+
+&quot;&quot;&quot;
+Plot a dendrogram using the dendrogram() function on mergings,
+specifying the keyword arguments labels=varieties, leaf_rotation=90,
+and leaf_font_size=6.
+&quot;&quot;&quot;
+dendrogram(mergings,
+        labels=varieties,
+        leaf_rotation=90,
+        leaf_font_size=6,
+        )
+
+plt.show()
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="k-means-vs-hierarchical-clustering">
+<h1>K-means vs. Hierarchical clustering<a class="headerlink" href="#k-means-vs-hierarchical-clustering" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Hierarchical clustering can’t handle big data very well- k-means clustering can.</p></li>
+<li><p>K-means clustering starts with an arbitrary choice of clusters, and the results generated by running the algorithm multiple times might differ. Results are reproducible in hierarchical clustering.</p></li>
+<li><p>K-means is found to work well when the shape of the clusters is hyperspherical (like a circle in 2D or a sphere in 3D).</p></li>
+<li><p>K-means doesn’t allow noisy data, while hierarchical clustering can directly use the noisy dataset for clustering.</p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:30% 90%" src="https://github.com/officegeek/image/raw/main/t_sne.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="t-sne-clustering">
+<h1>t-SNE clustering<a class="headerlink" href="#t-sne-clustering" title="Permalink to this headline">¶</a></h1>
+<p>A unsupervised learning methods for visualization is <strong>t-distributed stochastic neighbor embedding</strong>, or <strong>t-SNE</strong>.</p>
+<p>It maps high-dimensional space into a two or three-dimensional space which can then be visualized.</p>
+<p>Specifically, it models each high-dimensional object by a two- or three-dimensional point in such a way that similar objects are modeled by nearby points and dissimilar objects are modeled by distant points with high probability.</p>
+<!-- _footer: https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="t-sne-learning-rate">
+<h1>t-SNE - Learning rate<a class="headerlink" href="#t-sne-learning-rate" title="Permalink to this headline">¶</a></h1>
+<p>The learning rate for t-SNE is usually in the range <strong>[10.0, 1000.0]</strong>.</p>
+<p>If the learning rate is <strong>too high</strong>, the data may look like a ‘ball’ with any point approximately equidistant from its nearest neighbors.</p>
+<p>If the learning rate is <strong>too low</strong>, most points may look compressed in a dense cloud with few outliers.</p>
+<p>If the cost function gets stuck in a bad local minimum increasing the learning rate may help.</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Importing Modules
+from sklearn import datasets
+from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
+
+# Loading dataset
+iris_df = datasets.load_iris()
+
+# Defining Model
+model = TSNE(learning_rate=100)
+
+# Fitting Model
+transformed = model.fit_transform(iris_df.data)
+
+# Plotting 2d t-Sne
+x_axis = transformed[:, 0]
+y_axis = transformed[:, 1]
+
+plt.scatter(x_axis, y_axis, c=iris_df.target)
+plt.show()
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="dbscan-clustering">
+<h1>DBSCAN clustering<a class="headerlink" href="#dbscan-clustering" title="Permalink to this headline">¶</a></h1>
+<p>Density-based spatial clustering of applications with noise, or DBSCAN, is a popular clustering algorithm used as a replacement for k-means in predictive analytics.</p>
+<p>The scikit-learn implementation provides a default for the eps and min_samples parameters, but you’re generally expected to tune those. The eps parameter is the maximum distance between two data points to be considered in the same neighborhood. The min_samples parameter is the minimum amount of data points in a neighborhood to be considered a cluster.</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Importing Modules
+from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+from sklearn.cluster import DBSCAN
+from sklearn.decomposition import PCA
+
+# Load Dataset
+iris = load_iris()
+
+# Declaring Model
+dbscan = DBSCAN()
+
+# Fitting
+dbscan.fit(iris.data)
+
+# Transoring Using PCA
+pca = PCA(n_components=2).fit(iris.data)
+pca_2d = pca.transform(iris.data)
+
+# Plot based on Class
+for i in range(0, pca_2d.shape[0]):
+    if dbscan.labels_[i] == 0:
+        c1 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c=&#39;r&#39;, marker=&#39;+&#39;)
+    elif dbscan.labels_[i] == 1:
+        c2 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c=&#39;g&#39;, marker=&#39;o&#39;)
+    elif dbscan.labels_[i] == -1:
+        c3 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c=&#39;b&#39;, marker=&#39;*&#39;)
+
+plt.legend([c1, c2, c3], [&#39;Cluster 1&#39;, &#39;Cluster 2&#39;, &#39;Noise&#39;])
+plt.title(&#39;DBSCAN finds 2 clusters and Noise&#39;)
+plt.show()
+</pre></div>
+</div>
+<hr class="docutils" />
+<!-- _class: invert -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reinforcement-learning-fit">
+<h1>Reinforcement Learning <!--fit--><a class="headerlink" href="#reinforcement-learning-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="reinforcement-learning">
+<h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this headline">¶</a></h1>
+<p>It is the training of machine learning models to make a sequence of decisions.</p>
+<p>The <em>machine</em> learns to achieve a goal in an uncertain, potentially complex environment. The <em>machine</em> employs trial and error to come up with a solution to the problem.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="reinforcement-learning-example">
+<h1>Reinforcement Learning - Example<a class="headerlink" href="#reinforcement-learning-example" title="Permalink to this headline">¶</a></h1>
+<p>Facebook has developed an open-source reinforcement learning platform — Horizon.
+The platform uses reinforcement learning to optimize large-scale production systems.</p>
+<p><strong>Facebook has used Horizon internally</strong></p>
+<ul class="simple">
+<li><p>To personalize suggestions</p></li>
+<li><p>Deliver more meaningful notifications to users</p></li>
+<li><p>Optimize video streaming quality</p></li>
+</ul>
+<p><strong>Read more</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://engineering.fb.com/ml-applications/horizon">https://engineering.fb.com/ml-applications/horizon</a></p></li>
+<li><p><a class="reference external" href="https://research.fb.com/publications/horizon-facebooks-open-source-applied-reinforcement-learning-platform">https://research.fb.com/publications/horizon-facebooks-open-source-applied-reinforcement-learning-platform</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg 67%" src="https://github.com/officegeek/image/raw/main/Types_of_ML.png" /></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4-sem\06-Machine_Learning_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

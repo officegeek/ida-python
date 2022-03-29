@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python brushup Docker and Azure &#8212; Teaching Kea</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Teaching Kea</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to my teaching page at Kea
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/4-sem/04-Docker_2/Slide.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://officegeek.github.io/ida-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://officegeek.github.io/ida-python//issues/new?title=Issue%20on%20page%20%2F4-sem/04-Docker_2/Slide.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Python brushup Docker and Azure
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tue-hellstern">
+     2022 - Tue Hellstern
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agenda">
+   Agenda
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-fit">
+   GitHub
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github">
+   GitHub
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#virtual-environment-fit">
+   Virtual Environment
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virtual-environments-help-you-to">
+     Virtual environments help you to:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-by-step">
+     Step by Step
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave">
+   Opgave
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dashboard-dash-fit">
+   Dashboard - Dash
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dash-introduction-video">
+   Dash Introduction video
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-dashboard-northwind">
+   Demo Dashboard - Northwind
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mysql-fit">
+   MySQL
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-sure-that-you-have">
+     Make sure that you have:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#views">
+     Views
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stored-procedure">
+     Stored Procedure
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python brushup Docker and Azure</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Python brushup Docker and Azure
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tue-hellstern">
+     2022 - Tue Hellstern
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agenda">
+   Agenda
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-fit">
+   GitHub
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github">
+   GitHub
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#virtual-environment-fit">
+   Virtual Environment
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virtual-environments-help-you-to">
+     Virtual environments help you to:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-by-step">
+     Step by Step
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave">
+   Opgave
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dashboard-dash-fit">
+   Dashboard - Dash
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dash-introduction-video">
+   Dash Introduction video
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-dashboard-northwind">
+   Demo Dashboard - Northwind
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mysql-fit">
+   MySQL
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-sure-that-you-have">
+     Make sure that you have:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#views">
+     Views
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stored-procedure">
+     Stored Procedure
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <!--
+_backgroundColor: black
+_color: white
+-->
+<div class="tex2jax_ignore mathjax_ignore section" id="python-brushup-docker-and-azure">
+<h1>Python brushup Docker and Azure<a class="headerlink" href="#python-brushup-docker-and-azure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tue-hellstern">
+<h2>2022 - Tue Hellstern<a class="headerlink" href="#tue-hellstern" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="agenda">
+<h1>Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>GitHub</p></li>
+<li><p>Virtual Environment</p></li>
+<li><p>MySQL</p></li>
+<li><p>Dashboard - Dash - Python</p></li>
+</ul>
+<hr class="docutils" />
+<!--
+_backgroundColor: black
+_color: white
+-->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="github-fit">
+<h1>GitHub <!-- fit --><a class="headerlink" href="#github-fit" title="Permalink to this headline">¶</a></h1>
+<p>Millions of developers and companies build, ship, and maintain their software on GitHub—the largest and most advanced development platform in the world.</p>
+<p><em>70 to 80% of programmer uses Git for version control and Github repository, both public and private, for storing their source codes</em></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="github">
+<h1>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h1>
+<p>A Programmer should also understand the basic concepts of source control like why and how and also Git fundamentals like local vs. remote commit, pushing change, pull requests, and code review.</p>
+<!--
+_backgroundColor: black
+_color: white
+-->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="virtual-environment-fit">
+<h1>Virtual Environment <!-- fit --><a class="headerlink" href="#virtual-environment-fit" title="Permalink to this headline">¶</a></h1>
+<p><span class="xref myst">Using Virtual Environment</span></p>
+<hr class="docutils" />
+<p><img alt="bg right:30% 110%" src="4-sem/04-Docker_2/image/virtual-environment.png" /></p>
+<div class="section" id="virtual-environments-help-you-to">
+<h2>Virtual environments help you to:<a class="headerlink" href="#virtual-environments-help-you-to" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Resolve dependency issues by allowing you to use different versions of a package for different projects. <em>For example, you could use Package A v2.7 for Project X and Package A v1.3 for Project Y.</em></p></li>
+<li><p>Make your project self-contained and reproducible by capturing all package dependencies in a requirements file.</p></li>
+<li><p>Install packages on a host on which you do not have admin privileges.</p></li>
+<li><p>Keep your global site-packages/directory tidy by removing the need to install packages system-wide which you might only need for one project.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="step-by-step">
+<h2>Step by Step<a class="headerlink" href="#step-by-step" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><strong>Create a new virtual environment</strong></p>
+<ul class="simple">
+<li><p><em>python3 -m venv venv-name</em></p></li>
+</ul>
+</li>
+<li><p><strong>Activate the virtual environment</strong></p>
+<ul class="simple">
+<li><p>macOS - <em>source env/bin/activate</em></p></li>
+<li><p>Windows - <em>.\Scripts\activate</em></p></li>
+</ul>
+</li>
+<li><p><strong>Packages</strong></p>
+<ul class="simple">
+<li><p>Install</p>
+<ul>
+<li><p><em>pip3 install name</em></p></li>
+</ul>
+</li>
+<li><p>requirements.txt</p>
+<ul>
+<li><p><em>pip3 install -r requirements.txt</em></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="opgave">
+<h1>Opgave<a class="headerlink" href="#opgave" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Create a new Virtual Environment with the name - <strong>northwind</strong></p></li>
+<li><p>Activate the Virtual Environment</p></li>
+<li><p>Create 2 folders inside <strong>northwind</strong>: <em>data</em> and <em>assets</em></p></li>
+<li><p>Download and place thise 2 files:</p>
+<ul>
+<li><p><em>data</em> - northwind_data.xlsx</p></li>
+<li><p><em>assets</em> - Northwind-Logo.gif</p></li>
+</ul>
+</li>
+<li><p>Create and run a <strong>requirements.txt</strong> file with thise packages:</p>
+<ul>
+<li><p><em>dash</em></p></li>
+<li><p><em>plotly</em></p></li>
+<li><p><em>pandas</em></p></li>
+<li><p><em>openpyxl</em></p></li>
+<li><p><em>dash_bootstrap_components</em></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<!--
+_backgroundColor: black
+_color: white
+-->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dashboard-dash-fit">
+<h1>Dashboard - Dash <!-- fit --><a class="headerlink" href="#dashboard-dash-fit" title="Permalink to this headline">¶</a></h1>
+<p>Dash apps give a point-&amp;-click interface to models written in Python, vastly expanding the notion of what’s possible in a traditional “dashboard”.</p>
+<p>With Dash apps, data scientists and engineers put complex Python analytics in the hands of business decision-makers and operators.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="dash-introduction-video">
+<h1>Dash Introduction video<a class="headerlink" href="#dash-introduction-video" title="Permalink to this headline">¶</a></h1>
+<iframe width="1100" height="600"
+src="https://player.vimeo.com/video/458223712?h=ac77255d72">
+</iframe>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="demo-dashboard-northwind">
+<h1>Demo Dashboard - Northwind<a class="headerlink" href="#demo-dashboard-northwind" title="Permalink to this headline">¶</a></h1>
+<p><span class="xref myst">Northwind Dashboard</span></p>
+<hr class="docutils" />
+<!--
+_backgroundColor: black
+_color: white
+-->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mysql-fit">
+<h1>MySQL <!-- fit --><a class="headerlink" href="#mysql-fit" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="make-sure-that-you-have">
+<h2>Make sure that you have:<a class="headerlink" href="#make-sure-that-you-have" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MySQL installed as a local server</p></li>
+<li><p>MySQL Workbench installed</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="views">
+<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<p>A view is a <strong>virtual table</strong> based on the resultset of an SQL statement.</p>
+<p>A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.</p>
+<p>You can add SQL statements and functions to a view and present the data as if the data were coming from one single table.</p>
+<p>A view is created with the <strong>CREATE VIEW</strong> statement.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="stored-procedure">
+<h2>Stored Procedure<a class="headerlink" href="#stored-procedure" title="Permalink to this headline">¶</a></h2>
+<p>A stored procedure is a <strong>prepared SQL code</strong> that you can save, so the code can be reused over and over again.</p>
+<p>You can <strong>pass parameters</strong> to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.</p>
+<p>A stored procedure is createde with the <strong>CREATE PROCEDURE</strong> statement.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4-sem\04-Docker_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

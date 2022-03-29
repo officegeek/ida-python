@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northwind Dashboard &#8212; Teaching Kea</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Teaching Kea</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to my teaching page at Kea
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/4-sem/01-Python-brushup_and_Docker_1/NorthwindDashboard.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://officegeek.github.io/ida-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://officegeek.github.io/ida-python//issues/new?title=Issue%20on%20page%20%2F4-sem/01-Python-brushup_and_Docker_1/NorthwindDashboard.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Northwind Dashboard
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virtual-environment">
+     Virtual Environment
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#files">
+     Files
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modules">
+     Modules
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-import">
+     Data import
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-charts">
+     Create charts
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialize-the-dash-app">
+     Initialize the Dash App
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-bar-logo">
+     Top bar - Logo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dash-layout">
+     Dash Layout
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-app">
+     Run the app
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#database-extension">
+   Database extension
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#views">
+   Views
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links">
+     Links
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Northwind Dashboard</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Northwind Dashboard
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virtual-environment">
+     Virtual Environment
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#files">
+     Files
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modules">
+     Modules
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-import">
+     Data import
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-charts">
+     Create charts
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialize-the-dash-app">
+     Initialize the Dash App
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-bar-logo">
+     Top bar - Logo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dash-layout">
+     Dash Layout
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-app">
+     Run the app
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#database-extension">
+   Database extension
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#views">
+   Views
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links">
+     Links
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><span class="xref myst">Home</span></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="northwind-dashboard">
+<h1>Northwind Dashboard<a class="headerlink" href="#northwind-dashboard" title="Permalink to this headline">¶</a></h1>
+<p>This is a demo of creating a <strong>dashboard</strong> using <strong>Python</strong> and <strong>Dash</strong></p>
+<p><img alt="" src="../../_images/northwinddashboard.jpg" /></p>
+<div class="section" id="virtual-environment">
+<h2>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Permalink to this headline">¶</a></h2>
+<p>Create and activate a new virtual environment - <strong>northwind</strong></p>
+<ul class="simple">
+<li><p>python3 -m venv northwind</p></li>
+</ul>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<p>You have to download thise files and place them, in the right folders, in the <strong>nortwind</strong> virtuel Environment</p>
+<ul class="simple">
+<li><p><strong>data</strong>/northwind_data.xlsx</p></li>
+<li><p><strong>assets</strong>/Northwind-Logo.gif</p></li>
+</ul>
+</div>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p>You need to install the following modules, inside the virtual environment, using an <strong>requirements.txt</strong> file</p>
+<ul class="simple">
+<li><p>dash</p></li>
+<li><p>plotly</p></li>
+<li><p>pandas</p></li>
+<li><p>openpyxl</p></li>
+<li><p>dash_bootstrap_components</p></li>
+</ul>
+<p>When they are installed you can import the modules:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dash</span>
+<span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">dcc</span>
+<span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">html</span>
+<span class="kn">import</span> <span class="nn">dash_bootstrap_components</span> <span class="k">as</span> <span class="nn">dbc</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-import">
+<h2>Data import<a class="headerlink" href="#data-import" title="Permalink to this headline">¶</a></h2>
+<p>The data for this demo is located in one Excel file  - <strong>northwind_data.xlsx</strong></p>
+<p>The Excel file has 4 sheets:</p>
+<ul class="simple">
+<li><p><em>EmployeesSale</em></p></li>
+<li><p><em>CategorySale</em></p></li>
+<li><p><em>Top5Products</em></p></li>
+<li><p><em>Top5Customers</em></p></li>
+</ul>
+<p>Each of the sheets are imported into a Pandas dataframe - using <strong>pd.read_excel</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Excel_file</span> <span class="o">=</span> <span class="s1">&#39;data/northwind_data.xlsx&#39;</span>
+<span class="n">EmployeesSale</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">Excel_file</span><span class="p">,</span> <span class="s2">&quot;EmployeesSale&quot;</span><span class="p">)</span>
+<span class="n">CategorySale</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">Excel_file</span><span class="p">,</span> <span class="s2">&quot;CategorySale&quot;</span><span class="p">)</span>
+<span class="n">Top5Products</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">Excel_file</span><span class="p">,</span> <span class="s2">&quot;Top5Products&quot;</span><span class="p">)</span>
+<span class="n">Top5Customers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">Excel_file</span><span class="p">,</span> <span class="s2">&quot;Top5Customers&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-charts">
+<h2>Create charts<a class="headerlink" href="#create-charts" title="Permalink to this headline">¶</a></h2>
+<p>For this demo we create 4 different charts, one for each dataframe.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">top5_products</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">Top5Products</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;ProductName&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Top 5 Products&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="k">def</span> <span class="nf">top5_customers</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">Top5Customers</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;CompanyName&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Top 5 Customers&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="k">def</span> <span class="nf">employesssale</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">EmployeesSale</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;EmployeesName&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sales by Employees&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>    
+
+<span class="k">def</span> <span class="nf">categorysale</span><span class="p">():</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">CategorySale</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;CategoryName&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Category Sales&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialize-the-dash-app">
+<h2>Initialize the Dash App<a class="headerlink" href="#initialize-the-dash-app" title="Permalink to this headline">¶</a></h2>
+<p>Now you have to define the Dash App and make the layout of the different charts</p>
+<ul class="simple">
+<li><p>The 4 charts has to be in 2 rows. Each row with a hight of 200 px</p></li>
+<li><p>For the design we are using the predefined <a class="reference external" href="https://bootswatch.com/flatly/">Flatly Theme</a></p></li>
+</ul>
+<p><img alt="" src="../../_images/chart_layout.jpg" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">()</span>
+
+<span class="c1"># Flatly theme</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="n">external_stylesheets</span> <span class="o">=</span> <span class="p">[</span> <span class="n">dbc</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">FLATLY</span><span class="p">],)</span>
+
+<span class="n">body_app</span> <span class="o">=</span> <span class="n">dbc</span><span class="o">.</span><span class="n">Container</span><span class="p">([</span>
+    
+    <span class="n">dbc</span><span class="o">.</span><span class="n">Row</span><span class="p">([</span>
+        <span class="c1"># 1 column, 1 row, covering 6 columms</span>
+        <span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span>
+            <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;top5products&#39;</span><span class="p">,</span> <span class="n">figure</span> <span class="o">=</span> <span class="n">top5_products</span><span class="p">()),</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="s1">&#39;400px&#39;</span><span class="p">},</span><span class="n">xs</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">md</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">lg</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">xl</span> <span class="o">=</span> <span class="mi">6</span><span class="p">),</span>
+         
+        <span class="c1"># 2 column, 1 row, coving 6 columns </span>
+        <span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span>
+            <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;top5customers&#39;</span><span class="p">,</span> <span class="n">figure</span> <span class="o">=</span> <span class="n">top5_customers</span><span class="p">()),</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="s1">&#39;400px&#39;</span><span class="p">},</span><span class="n">xs</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">md</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">lg</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">xl</span> <span class="o">=</span> <span class="mi">6</span><span class="p">),</span>         
+    <span class="p">]),</span> 
+
+    <span class="n">dbc</span><span class="o">.</span><span class="n">Row</span><span class="p">([</span>
+        <span class="c1"># 1 column, 2 row, coving 6 columns </span>
+        <span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span>
+            <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;employeessale&#39;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">employesssale</span><span class="p">()),</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="s1">&#39;400px&#39;</span><span class="p">},</span><span class="n">xs</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">md</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">lg</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">xl</span> <span class="o">=</span> <span class="mi">6</span><span class="p">),</span>
+
+        <span class="c1"># 2 column, 2 row, coving 6 columns </span>
+        <span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span>
+            <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;categorysale&#39;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">categorysale</span><span class="p">()),</span>
+            <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span><span class="s1">&#39;400px&#39;</span><span class="p">},</span><span class="n">xs</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">md</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">lg</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">xl</span> <span class="o">=</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="p">]),</span>
+
+<span class="p">],</span><span class="n">fluid</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># Using Fluid   </span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="top-bar-logo">
+<h2>Top bar - Logo<a class="headerlink" href="#top-bar-logo" title="Permalink to this headline">¶</a></h2>
+<p>In the top of the webpage we would like to have a logo.</p>
+<ul class="simple">
+<li><p>The Flatly theme has a <strong>Navbar</strong> definitionen</p></li>
+<li><p>The logo (<em>Northwind-Logo.gif</em>) are placed in the folder <strong>assets</strong></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span> <span class="o">=</span> <span class="s1">&#39;./assets/Northwind-Logo.gif&#39;</span>
+
+<span class="n">topbar</span> <span class="o">=</span> <span class="n">dbc</span><span class="o">.</span><span class="n">Navbar</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">dbc</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">Img</span><span class="p">(</span><span class="n">src</span> <span class="o">=</span> <span class="n">logo</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;70px&quot;</span><span class="p">),</span> <span class="p">),</span>
+                <span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span>
+                    <span class="n">dbc</span><span class="o">.</span><span class="n">NavbarBrand</span><span class="p">(</span><span class="s2">&quot;Northwind sales&quot;</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;fontSize&#39;</span><span class="p">:</span><span class="s1">&#39;25px&#39;</span><span class="p">,</span><span class="s1">&#39;fontFamily&#39;</span><span class="p">:</span><span class="s1">&#39;Times New Roman&#39;</span><span class="p">}</span>
+                    <span class="p">),</span>
+                <span class="p">)</span>
+            <span class="p">],</span>
+            <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">className</span><span class="o">=</span><span class="s2">&quot;g-10&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dash-layout">
+<h2>Dash Layout<a class="headerlink" href="#dash-layout" title="Permalink to this headline">¶</a></h2>
+<p>You have to define the <strong>app layout</strong>. It has to include, the <em>topbar</em> and the <em>body_app</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="s1">&#39;parent&#39;</span><span class="p">,</span> <span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">topbar</span><span class="p">,</span> <span class="n">body_app</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-app">
+<h2>Run the app<a class="headerlink" href="#run-the-app" title="Permalink to this headline">¶</a></h2>
+<p>You have to start the Dash app server.</p>
+<p>It is, by default, running local on the IP adresse: <a class="reference external" href="http://127.0.0.1:8050">http://127.0.0.1:8050</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can terminate the Dash server with: <strong>CTRL + C</strong></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="database-extension">
+<h1>Database extension<a class="headerlink" href="#database-extension" title="Permalink to this headline">¶</a></h1>
+<p>Until now you have usede data from Excel (<em>northwind_data.xlsx</em>), now we change this to your local MySQL database.</p>
+<p>You have to create the <strong>Northwind</strong> database. It is done with the <strong>northwind_kea.sql</strong> script - <span class="xref myst">northwind_kea.sql</span></p>
+<p>The script creates the Northwind database, 11 tables with data and the relations between the different tables.</p>
+<p><img alt="" src="../../_images/northwind_er.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="views">
+<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
+<p>In the Northwind database you have to create 4 view’s - It can be done without the 4 view’s but it is more connivent to work with the view’s - <span class="xref myst">dash_views.sql</span></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">CategorySale</span><span class="w"></span>
+<span class="k">as</span><span class="w"></span>
+<span class="w">	</span><span class="k">select</span><span class="w"> </span>
+<span class="w">		</span><span class="n">CategoryName</span><span class="p">,</span><span class="w"></span>
+<span class="w">		</span><span class="k">sum</span><span class="p">(</span><span class="n">orderdetails</span><span class="p">.</span><span class="n">UnitPrice</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">Quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Total</span><span class="w"></span>
+<span class="w">	</span><span class="k">from</span><span class="w"> </span><span class="n">categories</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">products</span><span class="w"></span>
+<span class="w">	</span><span class="k">on</span><span class="w"> </span><span class="n">categories</span><span class="p">.</span><span class="n">CategoryID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="n">ProductID</span><span class="w"></span>
+<span class="w">	</span><span class="k">join</span><span class="w"> </span><span class="n">orderdetails</span><span class="w"></span>
+<span class="w">	</span><span class="k">on</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="n">ProductID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">ProductID</span><span class="w"></span>
+<span class="w">	</span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">CategoryName</span><span class="w"></span>
+<span class="w">	</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w"></span>
+
+<span class="o">#</span><span class="w"> </span><span class="n">EmployeesSale</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">EmployeesSale</span><span class="w"></span>
+<span class="k">as</span><span class="w"></span>
+<span class="w">	</span><span class="k">select</span><span class="w"> </span>
+<span class="w">		</span><span class="n">concat</span><span class="p">(</span><span class="n">employees</span><span class="p">.</span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">LastName</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">EmployeeName</span><span class="p">,</span><span class="w"></span>
+<span class="w">		</span><span class="k">sum</span><span class="p">(</span><span class="n">orderdetails</span><span class="p">.</span><span class="n">UnitPrice</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">Quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Total</span><span class="w"></span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">orders</span><span class="w"></span>
+<span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">employees</span><span class="p">.</span><span class="n">EmployeeID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">EmployeeID</span><span class="w"></span>
+<span class="w">    </span><span class="k">join</span><span class="w"> </span><span class="n">orderdetails</span><span class="w"></span>
+<span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">OrderID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">OrderID</span><span class="w"></span>
+<span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">FirstName</span><span class="w"></span>
+<span class="w">	</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Total</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span>
+<span class="o">#</span><span class="w"> </span><span class="n">Top5Products</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">Top5Products</span><span class="w"></span>
+<span class="k">as</span><span class="w"></span>
+<span class="w">	</span><span class="k">select</span><span class="w"> </span>
+<span class="w">		</span><span class="n">ProductName</span><span class="p">,</span><span class="w"></span>
+<span class="w">		</span><span class="k">sum</span><span class="p">(</span><span class="n">orderdetails</span><span class="p">.</span><span class="n">UnitPrice</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">Quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Total</span><span class="w"></span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">orderdetails</span><span class="w"></span>
+<span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">products</span><span class="p">.</span><span class="n">ProductID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">ProductID</span><span class="w"></span>
+<span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">ProductName</span><span class="w"></span>
+<span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Total</span><span class="w"> </span><span class="k">desc</span><span class="w"></span>
+<span class="w">	</span><span class="k">limit</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="o">#</span><span class="w"> </span><span class="n">Top5Customers</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">Top5Customers</span><span class="w"></span>
+<span class="k">as</span><span class="w"></span>
+<span class="w">	</span><span class="k">select</span><span class="w"></span>
+<span class="w">		</span><span class="n">CompanyName</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="k">sum</span><span class="p">(</span><span class="n">orderdetails</span><span class="p">.</span><span class="n">UnitPrice</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">Quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Total</span><span class="w"></span>
+<span class="w">	</span><span class="k">from</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">orders</span><span class="w"></span>
+<span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">customers</span><span class="p">.</span><span class="n">CustomerID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">CustomerID</span><span class="w"></span>
+<span class="w">    </span><span class="k">join</span><span class="w"> </span><span class="n">orderdetails</span><span class="w"></span>
+<span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">orders</span><span class="p">.</span><span class="n">OrderID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderdetails</span><span class="p">.</span><span class="n">OrderID</span><span class="w"></span>
+<span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">CompanyName</span><span class="w"></span>
+<span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Total</span><span class="w"> </span><span class="k">desc</span><span class="w"></span>
+<span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<p>Collection of some relevant links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com">plotly.com</a></p>
+<ul>
+<li><p><a class="reference external" href="https://plotly.com/python/pie-charts">Pie Charts</a></p></li>
+<li><p><a class="reference external" href="https://plotly.com/python/bar-charts">Bar Charts</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://dash.plotly.com">Dash</a></p></li>
+<li><p><a class="reference external" href="https://dash-bootstrap-components.opensource.faculty.ai">dash-bootstrap-components.opensource.faculty.ai</a></p></li>
+<li><p><a class="reference external" href="https://bootswatch.com/flatly">Flatly Theme</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4-sem\01-Python-brushup_and_Docker_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda &#8212; Teaching Kea</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Teaching Kea</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to my teaching page at Kea
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/3-sem/slides/Flask_MySQL.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://officegeek.github.io/ida-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://officegeek.github.io/ida-python//issues/new?title=Issue%20on%20page%20%2F3-sem/slides/Flask_MySQL.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Agenda
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flask-mysql-fit">
+   Flask &amp; MySQL
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-flask">
+     Installing FLASK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-2-sub-folders">
+   Create 2 sub-folders:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-webserver-application">
+   Python WebServer Application
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-the-application-app-py">
+   Run the application - app.py
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sense-hat-data">
+   Sense Hat Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#show-the-data-from-the-sense-hat-in-a-webpage">
+     Show the data from the Sense Hat in a webpage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#index-html">
+   index.html
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#senesdata-py-1-route">
+   senesdata.py - 1. route
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#style-css">
+   style.css
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#senesdata-py-2-route">
+   senesdata.py - 2. route
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#database-html">
+   database.html
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scrumwise">
+   Scrumwise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uge-37">
+   2021-37: Uge 37
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uge-38-afslutning">
+   2021-38: Uge 38 - Afslutning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aflevering">
+   Aflevering
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Agenda<!-- fit --></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Agenda
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flask-mysql-fit">
+   Flask &amp; MySQL
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-flask">
+     Installing FLASK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-2-sub-folders">
+   Create 2 sub-folders:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-webserver-application">
+   Python WebServer Application
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-the-application-app-py">
+   Run the application - app.py
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sense-hat-data">
+   Sense Hat Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#show-the-data-from-the-sense-hat-in-a-webpage">
+     Show the data from the Sense Hat in a webpage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#index-html">
+   index.html
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#senesdata-py-1-route">
+   senesdata.py - 1. route
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#style-css">
+   style.css
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#senesdata-py-2-route">
+   senesdata.py - 2. route
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#database-html">
+   database.html
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scrumwise">
+   Scrumwise
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uge-37">
+   2021-37: Uge 37
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uge-38-afslutning">
+   2021-38: Uge 38 - Afslutning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aflevering">
+   Aflevering
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <!-- _backgroundColor: black -->
+<!-- _color: white -->
+<div class="tex2jax_ignore mathjax_ignore section" id="agenda-fit">
+<h1>Agenda<!-- fit --><a class="headerlink" href="#agenda-fit" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Flask and MySQL</p></li>
+<li><p>Scrumwise</p></li>
+<li><p>Sprint 2 review</p></li>
+<li><p>Sprint 3 planning</p></li>
+</ul>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="flask-mysql-fit">
+<h1>Flask &amp; MySQL<!-- fit --><a class="headerlink" href="#flask-mysql-fit" title="Permalink to this headline">¶</a></h1>
+<p>Flask is a web framework that provides libraries to build lightweight web applications in python. It is developed by Armin Ronacher who leads an international group of python enthusiasts (POCCO). It is based on WSGI toolkit and jinja2 template engine. Flask is considered as a micro framework.</p>
+<hr class="docutils" />
+<p><img alt="bg right:43% 140%" src="https://github.com/officegeek/image/raw/main/flask.png" /></p>
+<div class="section" id="installing-flask">
+<h2>Installing FLASK<a class="headerlink" href="#installing-flask" title="Permalink to this headline">¶</a></h2>
+<p>The first thing to do is to install Flask on your Raspberry Pi. Go to Terminal and enter:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3-flask
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="create-2-sub-folders">
+<h1>Create 2 sub-folders:<a class="headerlink" href="#create-2-sub-folders" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>static</strong> <em>for CSS files</em></p></li>
+<li><p><strong>templates</strong> <em>for HTML files</em></p></li>
+</ul>
+<p>The final folder <em>tree</em> will be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/flaskdemo
+    /static
+    /templates
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="python-webserver-application">
+<h1>Python WebServer Application<a class="headerlink" href="#python-webserver-application" title="Permalink to this headline">¶</a></h1>
+<p>Create the Python <em>WebServer</em> with Flask.</p>
+<ul class="simple">
+<li><p>Create a file (<em><a class="reference external" href="http://app.py">app.py</a></em>) in the <em>flaskdemo</em> folder</p></li>
+<li><p>Insert this code</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    
+    <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello 3. semester&#39;</span>
+    
+    <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You use port <strong>5000</strong> and it can be accessed from all ip addresses - <strong>host=’0.0.0.0’</strong></p>
+<hr class="docutils" />
+<p><img alt="bg right:41% 80%" src="https://github.com/officegeek/image/raw/main/FlaskFlowDemo_1.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="run-the-application-app-py">
+<h1>Run the application - <a class="reference external" href="http://app.py">app.py</a><a class="headerlink" href="#run-the-application-app-py" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python3 app.py
+</pre></div>
+</div>
+<p>Point your browser to the IP address of the Raspberry PI and port <em>5000</em></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://raspberryip_ip:5000
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><img alt="bg right:50% 150%" src="https://github.com/officegeek/image/raw/main/pingpong.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="sense-hat-data">
+<h1>Sense Hat Data<a class="headerlink" href="#sense-hat-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="show-the-data-from-the-sense-hat-in-a-webpage">
+<h2>Show the data from the Sense Hat in a webpage<a class="headerlink" href="#show-the-data-from-the-sense-hat-in-a-webpage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://senesdata.py">senesdata.py</a></p></li>
+<li><p>index.html</p></li>
+<li><p>style.css</p></li>
+<li><p>database.html</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="index-html">
+<h1>index.html<a class="headerlink" href="#index-html" title="Permalink to this headline">¶</a></h1>
+<p>Create a file named <strong>index.html</strong>, save it in the <strong>/templates</strong> folder.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ time }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../static/style.css/&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Sense Hat Output<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>The temperatur is: {{ temperatur }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>The pressure is: {{ pressure }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>The humidity is: {{ humidity }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Anything in <em>double curly</em> braces within the HTML template is interpreted as a <strong>variable</strong> that would be passed to it from the Python script via the <strong>render_template</strong> function.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="senesdata-py-1-route">
+<h1><a class="reference external" href="http://senesdata.py">senesdata.py</a> - 1. route<a class="headerlink" href="#senesdata-py-1-route" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">sense_hat</span> <span class="kn">import</span> <span class="n">SenseHat</span>
+<span class="kn">import</span> <span class="nn">mysql.connector</span>
+
+<span class="c1"># Sense data</span>
+<span class="n">sense</span> <span class="o">=</span> <span class="n">SenseHat</span><span class="p">()</span>
+
+<span class="c1"># Flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">templetdata</span><span class="p">():</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">timeString</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y %H:%M&quot;</span><span class="p">)</span>
+    <span class="n">temperaturString</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">sense</span><span class="o">.</span><span class="n">get_temperature</span><span class="p">(),</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pressureString</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">sense</span><span class="o">.</span><span class="n">get_pressure</span><span class="p">(),</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">humidityString</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">sense</span><span class="o">.</span><span class="n">get_humidity</span><span class="p">(),</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">templateData</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">timeString</span><span class="p">,</span>
+        <span class="s1">&#39;temperatur&#39;</span><span class="p">:</span> <span class="n">temperaturString</span><span class="p">,</span>
+        <span class="s1">&#39;pressure&#39;</span><span class="p">:</span> <span class="n">pressureString</span><span class="p">,</span>
+        <span class="s1">&#39;humidity&#39;</span><span class="p">:</span> <span class="n">humidityString</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">templateData</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="style-css">
+<h1>style.css<a class="headerlink" href="#style-css" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">grey</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">h1</span><span class="o">,</span><span class="w"> </span><span class="nt">h2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">p</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><img alt="bg 95%" src="https://github.com/officegeek/image/raw/main/FlaskFlow_1.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="senesdata-py-2-route">
+<h1><a class="reference external" href="http://senesdata.py">senesdata.py</a> - 2. route<a class="headerlink" href="#senesdata-py-2-route" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/database&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">databasedata</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+            <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+            <span class="n">user</span><span class="o">=</span><span class="s2">&quot;pi&quot;</span><span class="p">,</span>
+            <span class="n">password</span><span class="o">=</span><span class="s2">&quot;Your_Password&quot;</span><span class="p">,</span>
+            <span class="n">database</span><span class="o">=</span><span class="s2">&quot;sensedata&quot;</span>
+        <span class="p">)</span>
+        
+        <span class="n">mycursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">mycursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM hatdata&quot;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">mycursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;database.html&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="database-html">
+<h1>database.html<a class="headerlink" href="#database-html" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Database<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../static/style.css/&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Database info<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">cellpadding</span><span class="o">=</span><span class="s">&quot;5&quot;</span> <span class="na">cellspacing</span><span class="o">=</span><span class="s">&quot;5&quot;</span><span class="p">&gt;</span>
+            {% for row in data %}
+                <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                {% for d in row %}
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ d }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                {% endfor %}
+                <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+            {% endfor %}
+        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><img alt="bg 95%" src="https://github.com/officegeek/image/raw/main/FlaskFlow_2.png" /></p>
+<hr class="docutils" />
+<p><img alt="bg 85%" src="https://github.com/officegeek/image/raw/main/FlaskFlowDemo_2.png" />
+<img alt="bg 85%" src="https://github.com/officegeek/image/raw/main/FlaskFlowDemo_3.png" /></p>
+<hr class="docutils" />
+<p><img alt="bg right:50% 95%" src="https://github.com/officegeek/image/raw/main/scrumwise_1.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="scrumwise">
+<h1>Scrumwise<a class="headerlink" href="#scrumwise" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.scrumwise.com/scrum/#/overview/project/group-1/id-199424-3369-1">https://www.scrumwise.com/scrum/#/overview/project/group-1/id-199424-3369-1</a></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="uge-37">
+<h1>2021-37: Uge 37<a class="headerlink" href="#uge-37" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Sprint Retrospective</p></li>
+<li><p><strong>SCRUM</strong> - <em>Tirsdag 14-09</em></p>
+<ul>
+<li><p>Sprint Review</p></li>
+<li><p>Sprint Planning</p></li>
+</ul>
+</li>
+<li><p><strong>IT</strong> - <em>Fredag 17-09</em></p>
+<ul>
+<li><p>SCRUM Backlog</p></li>
+<li><p>IT emne - <em>Hardware - computerkomponenter</em></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="uge-38-afslutning">
+<h1>2021-38: Uge 38 - Afslutning<a class="headerlink" href="#uge-38-afslutning" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Sprint Retrospective</p></li>
+<li><p><strong>SCRUM</strong> - <em>Tirsdag 21-09</em></p>
+<ul>
+<li><p>Sprint Review</p></li>
+</ul>
+</li>
+<li><p><strong>IT</strong> - <em>Fredag 24-09 - Kl. 08:30 til 12:30</em></p>
+<ul>
+<li><p>Præsentation</p></li>
+<li><p>IT emne - <em>Operating systems</em></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="aflevering">
+<h1>Aflevering<a class="headerlink" href="#aflevering" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Kode</p></li>
+<li><p>IT-emner</p></li>
+<li><p>PowerPoint</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./3-sem\slides"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
