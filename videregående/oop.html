@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Object Oriented Programming i Python &#8212; Python - IDA</title>
+    <title>OOP &#8212; Python - IDA</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -131,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Object Oriented Programming i Python
+   OOP
   </a>
  </li>
  <li class="toctree-l1">
@@ -255,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Object Oriented Programming i Python</h1>
+                <h1>OOP</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -309,23 +309,20 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="object-oriented-programming-i-python">
-<h1>Object Oriented Programming i Python<a class="headerlink" href="#object-oriented-programming-i-python" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="oop">
+<h1>OOP<a class="headerlink" href="#oop" title="Permalink to this headline">¶</a></h1>
 <p>Introduktion til Object Oriented Programming i Python</p>
 <div class="section" id="hvad-er-oop">
 <h2>Hvad er OOP?<a class="headerlink" href="#hvad-er-oop" title="Permalink to this headline">¶</a></h2>
-<p>Objektorienteret programmering (<em>OOP</em>) er en måde at strukturere din kode på, så
-både datas karakteristika og adfærd kan samles i en enkelt struktur.</p>
-<p>Denne enkelte struktur giver dig derefter mulighed for at bruge den klasse eller
-det objekt, du har oprettet igen og igen i hele din kode, efter princippet i
-<strong>Don’t Repeat Yourself</strong> (<em>DRY</em>).</p>
+<p><strong>Objektorienteret programmering</strong> (<em>OOP</em>) er en måde at strukturere din kode på, så både datas karakteristika og adfærd kan samles i en enkelt struktur.</p>
+<p>Denne enkelte struktur giver dig derefter mulighed for at bruge den klasse eller det objekt, du har oprettet igen og igen i hele din kode, efter princippet <strong>Don’t Repeat Yourself</strong>.</p>
 <p>Dette er i modsætning til <em>proceduremæssig</em> programmering, hvor man koder en
 sekvens af trin for at udføre en opgave ved hjælp af funktioner og kode blokke.</p>
 </div>
 <div class="section" id="eksempel-medarbejder">
 <h2>Eksempel - Medarbejder<a class="headerlink" href="#eksempel-medarbejder" title="Permalink to this headline">¶</a></h2>
 <p>Som eksempel kan vi bruge medarbejdere i en virksomhed. Du ønsker at gemme
-oplysninger om disse medarbejdere</p>
+disse oplysninger om medarbejderne.</p>
 <p>F.eks.</p>
 <ul class="simple">
 <li><p>Navn</p></li>
@@ -338,19 +335,15 @@ oplysninger om disse medarbejdere</p>
 <li><p>osv.</p></li>
 </ul>
 <p>Vi vil gerne tilføje noget funktionalitet når en medarbejder gør noget, eller
-hvor der sker noget. For eksempel vil du måske give dem en lønforhøjelse, du vil
-måske betale dem en bonus.</p>
+hvor der sker noget. For eksempel vil du måske give dem en lønforhøjelse eller betale dem en bonus.</p>
 <p>Ved at oprette en <strong>medarbejderklasse</strong> kan du gemme alle disse data og udføre
-funktioner på hver medarbejder. Du kan genbruge den samme <em>funktionalitet</em> igen
-og igen.</p>
+funktioner på hver medarbejder. Du kan genbruge den samme <em>funktionalitet</em> igen og igen.</p>
 <p>Måden dette gøres på er ved at oprette <strong>klasser</strong>, der bruges som <em>skabelon</em>
-til <strong>objekter</strong>. Klassen beskriver overordnet hvad objektet vil, men er adskilt
-fra selve objektet, som er en specifik instans.</p>
+til <strong>objekter</strong>. Klassen beskriver overordnet hvad objektet vil, men er adskilt fra selve objektet, som er en specifik instans.</p>
 </div>
 <div class="section" id="oprettelse-af-en-klasse">
 <h2>Oprettelse af en klasse<a class="headerlink" href="#oprettelse-af-en-klasse" title="Permalink to this headline">¶</a></h2>
-<p>Nu skal klassen oprettes, dette gøres med keyword class og den efterfølgende
-kode indrykket.</p>
+<p>Nu skal klassen oprettes, dette gøres med <strong>keyword class</strong> og den efterfølgende kode indrykket.</p>
 <p>Et eksempel på dette ville være som følger:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -398,8 +391,7 @@ bruges til at udskrive navnet på klassen. I dette tilfælde er det
 </pre></div>
 </div>
 <p>Ved oprettelse af klassen skal det bemærkes, at alle metoder, der er en del af
-klasser, skal have <strong>self</strong> argumentet som den første parameter, selvom det ikke
-er eksplicit i koden.</p>
+klasser, skal have <strong>self</strong> argumentet som den første parameter, selvom det ikke er eksplicit i koden.</p>
 <p>I dette tilfælde behøvede vi ikke at angive nogen <strong>self</strong> egenskab ved
 oprettelse af <em>Kim</em>, men vi bruger den til at tildele attributter til klassen.</p>
 <p>Vi kan få adgang attributter i klassen ved hjælp af <strong>.</strong> og <strong>attribut</strong>
@@ -415,8 +407,7 @@ oplysninger om.</p>
 til at gemme disse oplysninger.</p>
 <p><em>Hvad hvis der manglede nogle oplysninger?</em></p>
 <p><em>For eksempel kunne det være at medarbejderen ikke har fået en mobil?</em></p>
-<p>I det tilfælde, hvis vi forsøger at oprette en forekomst af klassen uden <em>mobil</em>
-oplysninger, får vi en fejl som følger:</p>
+<p>I det tilfælde, hvis vi forsøger at oprette en forekomst af klassen uden <em>mobil</em> oplysninger, får vi en fejl som følger:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Kim</span> <span class="o">=</span> <span class="n">Medarbejder</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="s1">&#39;kim@mitfirma.dk&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span><span class="p">:</span> <span class="fm">__init__</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">1</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">argument</span><span class="p">:</span> <span class="s1">&#39;mobil&#39;</span>
@@ -484,20 +475,20 @@ handlinger med vores objekter.</p>
 <p>Disse metoder er defineret på samme måde som funktioner, men da dette er en del
 af klassen, skal vi sikre os, at <strong>self</strong> argumentet er overført.</p>
 <p>Lad os oprette en metode der kan giver vores medarbejdere en løn stigning på 10%</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
+<div class="highlight-pythonn notranslate"><div class="highlight"><pre><span></span>class Medarbejder:
         
-    <span class="c1"># class attribute</span>
-    <span class="n">firmanavn</span> <span class="o">=</span> <span class="s2">&quot;Mit firma&quot;</span>
+    # class attribute
+    firmanavn = &quot;Mit firma&quot;
     
-    <span class="c1"># </span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mobil</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mobil</span> <span class="o">=</span> <span class="n">mobil</span>
+    # 
+    def __init__(self, lon = 0, email = &#39;&#39;, mobil = &#39;&#39;):
+        self.lon = lon
+        self.email = email
+        self.mobil = mobil
     
-    <span class="c1"># Løn stigning metode</span>
-    <span class="k">def</span> <span class="nf">lonstigning</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">+=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">lon</span>
+    # Løn stigning metode
+    def lonstigning(self):
+        self.lon += 0.1 * self.lon
 </pre></div>
 </div>
 <p>Når du vil give en medarbejder 10% lønstigning brugere du metoden
