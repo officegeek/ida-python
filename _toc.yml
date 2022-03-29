@@ -4,6 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: ./4-sem/modul-4-4
+  sections:
+  - file: ./01-Python-brushup_and_Docker_1/README
+  - file: ./02-Virtualisering/README
+- file: ./3-sem/InformationTechnology
