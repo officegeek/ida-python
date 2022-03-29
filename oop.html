@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Oriented Programming i Python &#8212; My sample book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Python Seminar IDA
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/oop.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Foop.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hvad-er-oop">
+   Hvad er OOP?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eksempel-medarbejder">
+   Eksempel - Medarbejder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oprettelse-af-en-klasse">
+   Oprettelse af en klasse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attributes">
+   Attributes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-attributes">
+   Class Attributes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aendringer">
+   Ændringer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Object Oriented Programming i Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hvad-er-oop">
+   Hvad er OOP?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eksempel-medarbejder">
+   Eksempel - Medarbejder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oprettelse-af-en-klasse">
+   Oprettelse af en klasse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attributes">
+   Attributes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-attributes">
+   Class Attributes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aendringer">
+   Ændringer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="object-oriented-programming-i-python">
+<h1>Object Oriented Programming i Python<a class="headerlink" href="#object-oriented-programming-i-python" title="Permalink to this headline">¶</a></h1>
+<p>Introduktion til Object Oriented Programming i Python</p>
+<div class="section" id="hvad-er-oop">
+<h2>Hvad er OOP?<a class="headerlink" href="#hvad-er-oop" title="Permalink to this headline">¶</a></h2>
+<p>Objektorienteret programmering (<em>OOP</em>) er en måde at strukturere din kode på, så
+både datas karakteristika og adfærd kan samles i en enkelt struktur.</p>
+<p>Denne enkelte struktur giver dig derefter mulighed for at bruge den klasse eller
+det objekt, du har oprettet igen og igen i hele din kode, efter princippet i
+<strong>Don’t Repeat Yourself</strong> (<em>DRY</em>).</p>
+<p>Dette er i modsætning til <em>proceduremæssig</em> programmering, hvor man koder en
+sekvens af trin for at udføre en opgave ved hjælp af funktioner og kode blokke.</p>
+</div>
+<div class="section" id="eksempel-medarbejder">
+<h2>Eksempel - Medarbejder<a class="headerlink" href="#eksempel-medarbejder" title="Permalink to this headline">¶</a></h2>
+<p>Som eksempel kan vi bruge medarbejdere i en virksomhed. Du ønsker at gemme
+oplysninger om disse medarbejdere</p>
+<p>F.eks.</p>
+<ul class="simple">
+<li><p>Navn</p></li>
+<li><p>E-mail</p></li>
+<li><p>Fødselsdag</p></li>
+<li><p>Afdeling</p></li>
+<li><p>Løntrin</p></li>
+<li><p>Løn</p></li>
+<li><p>Ansættelse dato</p></li>
+<li><p>osv.</p></li>
+</ul>
+<p>Vi vil gerne tilføje noget funktionalitet når en medarbejder gør noget, eller
+hvor der sker noget. For eksempel vil du måske give dem en lønforhøjelse, du vil
+måske betale dem en bonus.</p>
+<p>Ved at oprette en <strong>medarbejderklasse</strong> kan du gemme alle disse data og udføre
+funktioner på hver medarbejder. Du kan genbruge den samme <em>funktionalitet</em> igen
+og igen.</p>
+<p>Måden dette gøres på er ved at oprette <strong>klasser</strong>, der bruges som <em>skabelon</em>
+til <strong>objekter</strong>. Klassen beskriver overordnet hvad objektet vil, men er adskilt
+fra selve objektet, som er en specifik instans.</p>
+</div>
+<div class="section" id="oprettelse-af-en-klasse">
+<h2>Oprettelse af en klasse<a class="headerlink" href="#oprettelse-af-en-klasse" title="Permalink to this headline">¶</a></h2>
+<p>Nu skal klassen oprettes, dette gøres med keyword class og den efterfølgende
+kode indrykket.</p>
+<p>Et eksempel på dette ville være som følger:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Her har vi oprette en <strong>Medarbejder</strong> klasse, der tager <strong>pass</strong> som den eneste
+attribut i øjeblikket.</p>
+<p>Det betyder, at vi har oprettet en <strong>tom klasse</strong>, som i øjeblikket ikke har
+nogen funktionalitet indlejret. <em>Dette er vigtigt, da det er den eneste måde at
+oprette en tom klasse på, da du ikke kan lade koden være tom, ellers får du en
+fejl.</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Kim</span> <span class="o">=</span> <span class="n">Medarbejder</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Du kan checke om en given medarbejder er <em>medlem</em> af klassen, <strong>Medarbejder</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Ulla</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Kim</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Her bruger vi <strong>.class</strong> til at kontrollere typen af klassen, og <strong>.name</strong>
+bruges til at udskrive navnet på klassen. I dette tilfælde er det
+<strong>Medarbejder</strong>.</p>
+</div>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<p>Det næste trin er at tilføje attributter til klassen.</p>
+<p>Dette gøres ved hjælp af metoden <strong>init()</strong> som kaldes, når en instans
+(<em>objekt</em>) af klassen oprettes.</p>
+<p>Vi vil gerne tilføje følgende attributter til klassen:</p>
+<ul class="simple">
+<li><p>E-mail</p></li>
+<li><p>Løn</p></li>
+<li><p>Mobil</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">mobil</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mobil</span> <span class="o">=</span> <span class="n">mobil</span>
+</pre></div>
+</div>
+<p>Opret medarbejder <em>Kim</em>, med information om <em>løn</em>, <em>e-mail</em> og <em>mobil</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Kim</span> <span class="o">=</span> <span class="n">Medarbejder</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="s1">&#39;kim@mitfirma.dk&#39;</span><span class="p">,</span> <span class="mi">23435363</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ved oprettelse af klassen skal det bemærkes, at alle metoder, der er en del af
+klasser, skal have <strong>self</strong> argumentet som den første parameter, selvom det ikke
+er eksplicit i koden.</p>
+<p>I dette tilfælde behøvede vi ikke at angive nogen <strong>self</strong> egenskab ved
+oprettelse af <em>Kim</em>, men vi bruger den til at tildele attributter til klassen.</p>
+<p>Vi kan få adgang attributter i klassen ved hjælp af <strong>.</strong> og <strong>attribut</strong>
+navnet.</p>
+<p>I dette tilfælde, kan vi få adgang til <em>løn</em> og <strong>e-mail</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Kims løn er: </span><span class="si">{</span><span class="n">Kim</span><span class="o">.</span><span class="n">lon</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Kims e-mail er: </span><span class="si">{</span><span class="n">Kim</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Forestil dig nu, at du havde tusindvis af medarbejdere, som du havde de samme
+oplysninger om.</p>
+<p>Vi har en klasse, som gør det muligt for os at oprette hundredvis af objekter
+til at gemme disse oplysninger.</p>
+<p><em>Hvad hvis der manglede nogle oplysninger?</em></p>
+<p><em>For eksempel kunne det være at medarbejderen ikke har fået en mobil?</em></p>
+<p>I det tilfælde, hvis vi forsøger at oprette en forekomst af klassen uden <em>mobil</em>
+oplysninger, får vi en fejl som følger:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Kim</span> <span class="o">=</span> <span class="n">Medarbejder</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="s1">&#39;kim@mitfirma.dk&#39;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="fm">__init__</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">1</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">argument</span><span class="p">:</span> <span class="s1">&#39;mobil&#39;</span>
+</pre></div>
+</div>
+<p>En måde at løse dette på er at angive en standardværdi</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mobil</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mobil</span> <span class="o">=</span> <span class="n">mobil</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class-attributes">
+<h2>Class Attributes<a class="headerlink" href="#class-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Attributter oprettet ved hjælp af <strong>init</strong>() metoden er <strong>instance</strong>
+attributter, da deres værdi er specifik for en <em>bestemt instans</em> af klassen.</p>
+<p>Her har alle ansatte <em>løn</em>, ‘e-mail’ og <em>mobil</em>, hver af disse vil være
+specifikke for den forekomst af den oprettede klasse og dermed specifikke for
+den pågældende medarbejder.</p>
+<p>Der findes også <strong>class</strong> attributter, som har sammen værdi for alle forekomster
+af klassen.</p>
+<p>Disse attributter tildeles <em>før</em> <strong>init()</strong> metoden.</p>
+<p>Vi kan med fordel tilføje navnet på den virksomhed som alle medarbejder arbejder
+for.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
+        
+    <span class="c1">#class attribute</span>
+    <span class="n">firmanavn</span> <span class="o">=</span> <span class="s2">&quot;Mit firma&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mobil</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mobil</span> <span class="o">=</span> <span class="n">mobil</span>
+</pre></div>
+</div>
+<p>Disse class attributter tilgås på samme måde som instance attributter, men de
+vil være de <strong>samme for alle instanser</strong> af den oprettede klasse.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Kims løn er: </span><span class="si">{</span><span class="n">Kim</span><span class="o">.</span><span class="n">lon</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Kims e-mail er: </span><span class="si">{</span><span class="n">Kim</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Kims mobil er: </span><span class="si">{</span><span class="n">Kim</span><span class="o">.</span><span class="n">mobil</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Firmaet hedder: </span><span class="si">{</span><span class="n">Kim</span><span class="o">.</span><span class="n">firmanavn</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="aendringer">
+<h2>Ændringer<a class="headerlink" href="#aendringer" title="Permalink to this headline">¶</a></h2>
+<p><em>Hvad med at ændre oplysninger om en medarbejder?</em></p>
+<p>Hvis en medarbejder skal have ændret sin løn eller have nyt mobil nummer, kan vi
+opdatere disse informationer på sammen måde som vi kan tilgå dem.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Kim</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="mi">40000</span>
+<span class="n">Kim</span><span class="o">.</span><span class="n">mobil</span> <span class="o">=</span> <span class="mi">87654321</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>Vi har nu oprettet <strong>class</strong>- og <strong>instance</strong>- attributter, det næste trin at
+tilføje <strong>metoder</strong>.</p>
+<p><strong>init()</strong> er en metode, som vi allerede har brugt til at tildele attributter,
+når vi først definerer en instans af klassen.</p>
+<p>Vi kan derefter begynde at definere vores egne <strong>metoder</strong>, der udfører bestemte
+handlinger med vores objekter.</p>
+<p>Disse metoder er defineret på samme måde som funktioner, men da dette er en del
+af klassen, skal vi sikre os, at <strong>self</strong> argumentet er overført.</p>
+<p>Lad os oprette en metode der kan giver vores medarbejdere en løn stigning på 10%</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
+        
+    <span class="c1"># class attribute</span>
+    <span class="n">firmanavn</span> <span class="o">=</span> <span class="s2">&quot;Mit firma&quot;</span>
+    
+    <span class="c1"># </span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mobil</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mobil</span> <span class="o">=</span> <span class="n">mobil</span>
+    
+    <span class="c1"># Løn stigning metode</span>
+    <span class="k">def</span> <span class="nf">lonstigning</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">+=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">lon</span>
+</pre></div>
+</div>
+<p>Når du vil give en medarbejder 10% lønstigning brugere du metoden
+<strong>lonstigning</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løn stigning</span>
+<span class="n">Kim</span><span class="o">.</span><span class="n">lonstigning</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Kims nye løn er: </span><span class="si">{</span><span class="n">Kim</span><span class="o">.</span><span class="n">lon</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ulempen ved denne metode er at den altid giver 10% i lønstigning, lad os gøre
+den mere fleksibel.</p>
+<p>Vi vil gerne kunne specificer stigningsprocenten, men også beholde 10% som
+standard.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Medarbejder</span><span class="p">:</span>
+        
+    <span class="c1"># class - attribute</span>
+    <span class="n">firmanavn</span> <span class="o">=</span> <span class="s2">&quot;Mit firma&quot;</span>
+    
+    <span class="c1"># instance - attributter</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mobil</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mobil</span> <span class="o">=</span> <span class="n">mobil</span>
+    
+    <span class="c1"># Løn stigning metode</span>
+    <span class="k">def</span> <span class="nf">lonstigning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stigninglon</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">+=</span> <span class="p">(</span><span class="n">stigninglon</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">lon</span>
+</pre></div>
+</div>
+<p>Du kan nu enten bruge standardstigningen på 10% eller specificere den stigning
+du ønsker.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Kim</span><span class="o">.</span><span class="n">lonstigning</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book Community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
