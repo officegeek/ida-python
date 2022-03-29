@@ -3,17 +3,17 @@ De data som du skal bruge i din Python kan meget vel være i en database.
 
 I Python er der flere forskellige muligheder for at oprette forbindelse til en database og hente data ud.
 
-Jer kommer tu til at oprette forbindelse til en MySQL server, men Python understøtter alle de gængse database servere.
+Jer oprette forbindelse til en MySQL server, men Python understøtter alle de gængse database servere.
 
 For at gøre det nemt, er det en MySQL Server der er hostede på Microsoft Azure jeg brugere som eksempel. 
 
 For at oprette forbindelse til denne server skal du bruge følgende oplysninger:
 
-- Server:ida-database.mysql.database.azure.com
-- Brugernavn: <udleveres>
-- Password: <udleveres>
+- **Server**: *ida-database.mysql.database.azure.com*
+- **Brugernavn**: *<udleveres>*
+- **Password**: *<udleveres>*
 
-Da en sådan database server kan misbruges, får du udleveret *brugernavn* og *password* på seminaret og disse vil **kun være gyldige den dag**.
+Da en database server kan misbruges, får du udleveret *brugernavn* og *password* på seminaret og disse vil **kun være gyldige den dag**.
 
 Jeg har valgt at opdele denne kode i 2 Python filer og en config fil.
 
@@ -33,7 +33,7 @@ Jeg brugere Python modulet SQLAlchemy til at oprette adgangen til databasen.
 Læs mere her [www.sqlalchemy.org](https://www.sqlalchemy.org)
 
 ## Northwind
-Den demo database jeg brugere er en Microsoft database ved navn *Northwind*. 
+Den demo database jeg brugere er en Microsoft demo database ved navn *Northwind*. 
 
 Du kan se et ER-diagram over databasen her.
 
@@ -67,9 +67,9 @@ def connect():
         db_conn.dispose() # Luk forbindelsen
 ```
 
-Når forbindelsen er oprettet skal vi hente data. Dette har jeg også valgt at opdele i funktioner.
+Når forbindelsen er oprettet skal vi hente data. Dette har jeg valgt at opdele i funktioner.
 
-Det første datasæt er følgende felter fra Employees tabellen:
+I det første datasæt skal følgende felter fra Employees tabellen hentes:
 
 - EmployeeID
 - FirstName
@@ -92,11 +92,11 @@ def get_employees():
 
 Hvis det er en mere kompleks SQL sætning du skal have afviklet vil det tit være en fordel at oprette et View ud fra denne SQL sætning.
 
-Her er et eksempel på en SQL sætning der finder salget fordelt på *måneder* og *produkter*.
+Her er et eksempel på en SQL sætning der finder *salget* fordelt på *måneder* og *produkter*.
 
 ```sql
 SELECT
-	products.ProductName,
+    products.ProductName,
     month(orders.OrderDate) as Order_Month,
     sum(orderdetails.UnitPrice * orderdetails.Quantity) as Order_Total
     FROM products
@@ -221,7 +221,7 @@ fig_product_sale.write_html('./ProductSale.html')
 ## config.ini
 Denne fil indeholder informationerne til at oprette forbindelse til MySQL databasen
 
-En **.ini** file er opdelt med en sektion - **[sektion]** og en **key** - **conn_string**
+En **.ini** file er opdelt med en **sektion** - **[mysql]** og en **key** - **conn_string**
 
 ```ini
 [mysql]
