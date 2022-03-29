@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEW &#8212; Teaching Kea</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Teaching Kea</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to my teaching page at Kea
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/4-sem/06-Machine_Learning_1/Machine_Learning.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://officegeek.github.io/ida-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://officegeek.github.io/ida-python//issues/new?title=Issue%20on%20page%20%2F4-sem/06-Machine_Learning_1/Machine_Learning.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   NEW
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-is-the-process-of-creating-models-that-can-perform-a-certain-task-without-the-need-for-a-human-explicitly-programming-it-to-do-something">
+   Machine Learning is the process of creating models that can perform a certain task without the need for a human explicitly programming it to do something
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#these-technologies-are-making-a-huge-difference-in-our-lives-every-day-and-evolving-fast-by-a-magnitude-of-people-working-to-improve-them-consistently">
+     These technologies are making a huge difference in our lives every day and evolving fast by a magnitude of people working to improve them consistently.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-algorithms">
+   Machine Learning algorithms
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning-fit">
+   Supervised Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning">
+   Supervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-supervised-learning">
+   Types of Supervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression">
+   Linear Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression-python">
+   Linear Regression Python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression">
+   Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification">
+   Classification
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decision-tree">
+   Decision Tree
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naive-bayes-classifier">
+   Naive Bayes Classifier
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support-vector-machines">
+   Support Vector Machines
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning-example">
+   Supervised Learning - Example
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predicting-house-prices">
+     Predicting house prices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression-python">
+   Logistic Regression Python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-fit">
+   Unsupervised Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning">
+   Unsupervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-examples">
+   Unsupervised Learning - Examples
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-fit">
+   Reinforcement Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-example">
+   Reinforcement Learning - Example
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#link">
+   Link
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>NEW</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   NEW
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-is-the-process-of-creating-models-that-can-perform-a-certain-task-without-the-need-for-a-human-explicitly-programming-it-to-do-something">
+   Machine Learning is the process of creating models that can perform a certain task without the need for a human explicitly programming it to do something
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#these-technologies-are-making-a-huge-difference-in-our-lives-every-day-and-evolving-fast-by-a-magnitude-of-people-working-to-improve-them-consistently">
+     These technologies are making a huge difference in our lives every day and evolving fast by a magnitude of people working to improve them consistently.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-algorithms">
+   Machine Learning algorithms
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning-fit">
+   Supervised Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning">
+   Supervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-supervised-learning">
+   Types of Supervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression">
+   Linear Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression-python">
+   Linear Regression Python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression">
+   Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification">
+   Classification
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decision-tree">
+   Decision Tree
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naive-bayes-classifier">
+   Naive Bayes Classifier
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support-vector-machines">
+   Support Vector Machines
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supervised-learning-example">
+   Supervised Learning - Example
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#predicting-house-prices">
+     Predicting house prices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression-python">
+   Logistic Regression Python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-fit">
+   Unsupervised Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning">
+   Unsupervised Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unsupervised-learning-examples">
+   Unsupervised Learning - Examples
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-fit">
+   Reinforcement Learning
+   <!--fit-->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning">
+   Reinforcement Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reinforcement-learning-example">
+   Reinforcement Learning - Example
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#link">
+   Link
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><img alt="bg 125%" src="https://github.com/officegeek/image/raw/main/ml.jpg" /></p>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="new">
+<h1>NEW<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ryantcullen/stock-bot">https://github.com/ryantcullen/stock-bot</a></p></li>
+</ul>
+<hr class="docutils" />
+<!-- _class: invert -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="machine-learning-is-the-process-of-creating-models-that-can-perform-a-certain-task-without-the-need-for-a-human-explicitly-programming-it-to-do-something">
+<h1>Machine Learning is the process of creating models that can perform a certain task without the need for a human explicitly programming it to do something<a class="headerlink" href="#machine-learning-is-the-process-of-creating-models-that-can-perform-a-certain-task-without-the-need-for-a-human-explicitly-programming-it-to-do-something" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p><img alt="bg right:20% 110%" src="https://github.com/officegeek/image/raw/main/Artificial_Intelligence_2.jpg" />
+Your smartphone, your house, your car, and your bank all use <strong>artificial intelligence</strong> on a daily basis.</p>
+<p>Sometimes it’s <strong>easy to understand</strong>, when you ask Siri, Cortana or OK Google to get you directions.</p>
+<p>Sometimes it’s <strong>less obvious</strong>, like when you make an abnormal purchase on your credit card and don’t get a fraud alert from your bank.</p>
+<p><strong>AI</strong>, <strong>ML</strong> and <strong>DL</strong> are everywhere and Data Science is the interdisciplinary field of methods to extract the knowledge needed.</p>
+<div class="section" id="these-technologies-are-making-a-huge-difference-in-our-lives-every-day-and-evolving-fast-by-a-magnitude-of-people-working-to-improve-them-consistently">
+<h2>These technologies are making a huge difference in our lives every day and evolving fast by a magnitude of people working to improve them consistently.<a class="headerlink" href="#these-technologies-are-making-a-huge-difference-in-our-lives-every-day-and-evolving-fast-by-a-magnitude-of-people-working-to-improve-them-consistently" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><img alt="bg right:30% 90%" src="https://github.com/officegeek/image/raw/main/ai_ml_dl_2.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="definitions">
+<h1>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h1>
+<p><strong>Artificial Intelligence</strong> (<em>AI</em>) refers to the <strong>simulation of human intelligence</strong> processes by machines, including learning, reasoning and self-correction</p>
+<p><strong>Machine learning</strong> (<em>ML</em>) is an application of <em>AI</em> generating systems that can learn and <strong>improve without being programmed</strong></p>
+<p><strong>Deep Learning</strong> (DL) is a subset of Machine Learning and Artificial Intelligence. The term refers to a <strong>particular approach</strong> used for creating and training neural networks that are considered highly promising decision-making nodes</p>
+<hr class="docutils" />
+<p><img alt="bg 100%" src="https://github.com/officegeek/image/raw/main/ai_ml_dl.png" /></p>
+<!-- _footer: medium.com -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="machine-learning-algorithms">
+<h1>Machine Learning algorithms<a class="headerlink" href="#machine-learning-algorithms" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Supervised Learning</p></li>
+<li><p>Unsupervised Learning</p></li>
+<li><p>Reinforcement Learning</p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg 95%" src="https://github.com/officegeek/image/raw/main/Learning.jpg" /></p>
+<hr class="docutils" />
+<p><img alt="bg 98%" src="https://github.com/officegeek/image/raw/main/Use-Case-Machine-Learning.png" /></p>
+<hr class="docutils" />
+<!-- _class: invert -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="supervised-learning-fit">
+<h1>Supervised Learning <!--fit--><a class="headerlink" href="#supervised-learning-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="supervised-learning">
+<h1>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Permalink to this headline">¶</a></h1>
+<p>The area of Machine Learning where you have a <strong>set of independent variables</strong> which helps you to analyse the <strong>dependent variable</strong> and the <strong>relation between them</strong></p>
+<p>Whatever you want to predict is called as <strong>Dependent Variable</strong>, while variables that you use to predict are called as <strong>Independent Variables</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>You want to predict the age of the person 
+based on the person’s height and weight, 
+then height and weight will be the independent 
+variables, while age will be the dependent variable
+</pre></div>
+</div>
+<p>Supervised learning is the most popular paradigm for machine learning.
+It is the easiest to understand and the simplest to implement</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="types-of-supervised-learning">
+<h1>Types of Supervised Learning<a class="headerlink" href="#types-of-supervised-learning" title="Permalink to this headline">¶</a></h1>
+<p>Supervised Learning can be classified into 2 types</p>
+<ul class="simple">
+<li><p>Regression</p></li>
+<li><p>Classification</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="regression">
+<h1>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
+<p>Regression is the kind of Supervised Learning that learns from the Labelled Datasets and is then able to predict a continuous-valued output for the new data given to the algorithm.</p>
+<p>It is used whenever the output required is a number such as money or height etc.</p>
+<ul class="simple">
+<li><p>Linear Regression</p></li>
+<li><p>Logistic Regression</p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:30% 90%" src="https://github.com/officegeek/image/raw/main/Linear-Regression.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="linear-regression">
+<h1>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h1>
+<p>This algorithm assumes that there is a linear relationship between the 2 variables, Input (X) and Output (Y), of the data it has learnt from. The Input variable is called the Independent Variable and the Output variable is called the Dependent Variable.</p>
+<p>When unseen data is passed to the algorithm, it uses the function, calculates and maps the input to a continuous value for the output.</p>
+<hr class="docutils" />
+<p><img alt="bg right:60% 100%" src="https://github.com/officegeek/image/raw/main/Linear-Regression-Example.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="linear-regression-python">
+<h1>Linear Regression Python<a class="headerlink" href="#linear-regression-python" title="Permalink to this headline">¶</a></h1>
+<!-- _footer:   Linear_Regression_Good.ipynb and  Linear_Regression_Bad.ipynb-->
+<hr class="docutils" />
+<p><img alt="bg right:30% 90%" src="https://github.com/officegeek/image/raw/main/Logistic-Regression.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="logistic-regression">
+<h1>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h1>
+<p>This algorithm predicts discrete values for the set of Independent variables that have been passed to it.</p>
+<p>It does the prediction by mapping the unseen data to the logit function that has been programmed into it.</p>
+<p>The algorithm predicts the probability of the new data and so it’s output lies between the range of 0 and 1.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="classification">
+<h1>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h1>
+<p>Classification is the kind of machine learning where the algorithm needs to <strong>map the new data</strong> that is obtained to any one of the <strong>2 classes that you have in the dataset</strong>.</p>
+<p>The classes need to be **mapped to either 1 or 0 **which in real-life translated to <em>Yes</em> or <em>No</em>, <em>Rains</em> or <em>Does Not Rain</em></p>
+<p>The output will be <strong>either one of the classes and not a number</strong> as it was in Regression.</p>
+<ul class="simple">
+<li><p>Decision Tree</p></li>
+<li><p>Naive Bayes Classifier</p></li>
+<li><p>Support Vector Machines</p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:30% 100%" src="https://github.com/officegeek/image/raw/main/Decision_Tree.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="decision-tree">
+<h1>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">¶</a></h1>
+<p>Decision Trees classify based on the feature values. They use the method of Information Gain and find out which feature of the dataset gives the best of information, make that as the root node and so on till they are able to classify each instance of the dataset.</p>
+<p>Every branch in the Decision Tree represents a feature of the dataset. They are one of the most widely used algorithms for classification.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="naive-bayes-classifier">
+<h1>Naive Bayes Classifier<a class="headerlink" href="#naive-bayes-classifier" title="Permalink to this headline">¶</a></h1>
+<p>Naive Bayes algorithms assume that the features of the dataset are all independent of each other.</p>
+<p>Works great on large datasets.</p>
+<hr class="docutils" />
+<p><img alt="bg right:40% 100%" src="https://github.com/officegeek/image/raw/main/Support-Vector-Machine.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="support-vector-machines">
+<h1>Support Vector Machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h1>
+<p>Support Vector Machines algorithms are based on the statistical learning theory of <em>Vapnik.</em></p>
+<p>They use Kernal functions which are a central concept for most of the learning tasks.
+These algorithms create a hyper-plane that is used to classify the two classes from each other.</p>
+<!-- _footer: Vapnik–Chervonenkis theory - https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_theory -->
+<hr class="docutils" />
+<p><img alt="bg right:25% 120%" src="https://github.com/officegeek/image/raw/main/house.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="supervised-learning-example">
+<h1>Supervised Learning - Example<a class="headerlink" href="#supervised-learning-example" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="predicting-house-prices">
+<h2>Predicting house prices<a class="headerlink" href="#predicting-house-prices" title="Permalink to this headline">¶</a></h2>
+<p>First, we need data about the houses: <em>square footage, number of rooms, features, whether a house has a garden or not, and so on</em>.</p>
+<p>We then need to know the prices of these houses, i.e. the corresponding labels.</p>
+<p>By leveraging data coming from thousands of houses, their features and prices, <strong>we can now train a supervised machine learning model to predict a new house’s price</strong> based on the examples observed by the model.</p>
+<hr class="docutils" />
+<p><img alt="bg right:60% 80%" src="https://github.com/officegeek/image/raw/main/Logistic_Regression.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="logistic-regression-python">
+<h1>Logistic Regression Python<a class="headerlink" href="#logistic-regression-python" title="Permalink to this headline">¶</a></h1>
+<!-- _footer:   Logistic_Regression_Application.ipynb and  Logistic_Regression_Diabetes.ipynb -->
+<hr class="docutils" />
+<!-- _class: invert -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning-fit">
+<h1>Unsupervised Learning <!--fit--><a class="headerlink" href="#unsupervised-learning-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning">
+<h1>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this headline">¶</a></h1>
+<p>You <strong>don’t have any dependent variable</strong>. You just have collection of variables and try to find out similarity between them and classify them into clusters</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="unsupervised-learning-examples">
+<h1>Unsupervised Learning - Examples<a class="headerlink" href="#unsupervised-learning-examples" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Customer segmentation, or understanding different customer groups around which to build marketing or other business strategies</p></li>
+<li><p>Recommender systems, which involve grouping together users with similar viewing patterns in order to recommend similar content.</p></li>
+<li><p>Anomaly detection, including fraud detection or detecting defective mechanical parts - <em>predictive maintenance</em></p></li>
+</ul>
+<hr class="docutils" />
+<!-- _class: invert -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reinforcement-learning-fit">
+<h1>Reinforcement Learning <!--fit--><a class="headerlink" href="#reinforcement-learning-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="reinforcement-learning">
+<h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this headline">¶</a></h1>
+<p>It is the training of machine learning models to make a sequence of decisions.</p>
+<p>The <em>machine</em> learns to achieve a goal in an uncertain, potentially complex environment. The <em>machine</em> employs trial and error to come up with a solution to the problem.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="reinforcement-learning-example">
+<h1>Reinforcement Learning - Example<a class="headerlink" href="#reinforcement-learning-example" title="Permalink to this headline">¶</a></h1>
+<p>Facebook has developed an open-source reinforcement learning platform — Horizon.
+The platform uses reinforcement learning to optimize large-scale production systems.</p>
+<p><strong>Facebook has used Horizon internally</strong></p>
+<ul class="simple">
+<li><p>To personalize suggestions</p></li>
+<li><p>Deliver more meaningful notifications to users</p></li>
+<li><p>Optimize video streaming quality</p></li>
+</ul>
+<p><strong>Read more</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://engineering.fb.com/ml-applications/horizon">https://engineering.fb.com/ml-applications/horizon</a></p></li>
+<li><p><a class="reference external" href="https://research.fb.com/publications/horizon-facebooks-open-source-applied-reinforcement-learning-platform">https://research.fb.com/publications/horizon-facebooks-open-source-applied-reinforcement-learning-platform</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg 67%" src="https://github.com/officegeek/image/raw/main/Types_of_ML.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="link">
+<h1>Link<a class="headerlink" href="#link" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ibm.com/cloud/learn/unsupervised-learning">https://www.ibm.com/cloud/learn/unsupervised-learning</a></p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4-sem\06-Machine_Learning_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1638 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Distributed Systems &amp; Docker 1 &#8212; Teaching Kea</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Teaching Kea</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to my teaching page at Kea
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/4-sem/05-Distribuerede_systemer/Distributed_Systems_Docker_1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://officegeek.github.io/ida-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://officegeek.github.io/ida-python//issues/new?title=Issue%20on%20page%20%2F4-sem/05-Distribuerede_systemer/Distributed_Systems_Docker_1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Web Distributed Systems &amp; Docker 1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     23-03-2021
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#agenda">
+       Agenda
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed-systems-fit">
+   Distributed Systems
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#centralized-processing">
+   Centralized processing
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed-system-the-system">
+   Distributed system –
+   <em>
+    The system
+   </em>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed-system-application">
+   Distributed system -
+   <em>
+    Application
+   </em>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#middleware">
+   Middleware
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-of-middleware">
+   Example of Middleware
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-oriented">
+   Communication oriented
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-oriented">
+   Application oriented
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transparency">
+   Transparency
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objective-of-middleware-hides-the-distribution-aspects">
+     Objective of middleware = Hides the distribution aspects
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#possibilities-of-transparency">
+     Possibilities of transparency:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Possibilities of transparency:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transparency-fit">
+   Transparency
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checking-a-form">
+   Checking a form
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enterprise-information-system-eis">
+   Enterprise Information System (
+   <em>
+    EIS
+   </em>
+   )
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typical-properties-of-an-information-system">
+     Typical properties of an information system:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inter-process-communication-ipc">
+   Inter-Process Communication (IPC)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ipc-is-a-mechanism-for-message-exchange-between-processes">
+     IPC is a mechanism for message exchange between processes:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-using-distribution">
+   Why using Distribution?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-main-reason-for-distribution">
+     The main reason for distribution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sharing-of-resources-scalability">
+       Sharing of resources/scalability
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coupling-and-cohesion-fit">
+   Coupling and Cohesion
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connection-between-parts-in-the-system">
+     Connection between parts in the system
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#high-and-low">
+     High and Low
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synchronous-asynchronous">
+     Synchronous - Asynchronous
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#low-coupling">
+   Low Coupling
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ipods-are-a-good-example-of-high-coupling">
+   iPods are a good example of High Coupling
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#once-the-battery-dies-you-might-as-well-buy-a-new-ipod-because-the-battery-is-soldered-fixed-and-wont-come-loose-thus-making-replacing-very-expensive">
+     Once the battery dies you might as well buy a new iPod because the battery is soldered fixed and won’t come loose, thus making replacing very expensive.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-low-coupled-player-would-allow-effortlessly-changing-the-battery">
+     A
+     <strong>
+      Low Coupled
+     </strong>
+     player would allow effortlessly changing the battery.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-aim-for-low-coupling">
+   We aim for
+   <em>
+    Low
+   </em>
+   Coupling
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#high-cohesion">
+   High Cohesion
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asynchronous-fit">
+   Asynchronous
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synchronous-fit">
+   Synchronous
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-fit">
+   Communication
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asynchronous-communication">
+   Asynchronous communication
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synchronous-communication">
+   Synchronous communication
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#false-assumptions-fit">
+   False assumptions
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#false-assumptions">
+   False assumptions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discuss-fit">
+   Discuss
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvc-fit">
+   MVC
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-view-controller">
+     Model-View-Controller
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvc">
+   MVC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-html-mvc">
+   Python - HTML - MVC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#routes">
+   Routes
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models-and-controllers">
+   Models and Controllers
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#views">
+   Views
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvc-summary">
+   MVC Summary
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-fastapi-todo-assignment">
+   API - FastAPI - ToDo Assignment
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-mvc">
+   Links - MVC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discuss-how-to-understand-the-mvc-pattern-fit">
+   Discuss how to understand the MVC pattern
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#design-patterns-fit">
+   Design Patterns
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#well-known-solutions-to-well-known-problems-and-that-is-called-design-patterns-fit">
+     Well-known solutions to well-known problems - And that is called Design Patterns
+     <!-- fit -->
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#design-patterns">
+   Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gang-of-four-design-patterns">
+   Gang Of Four Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benefits-of-the-design-pattern">
+   Benefits of the design pattern
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-design-patterns">
+   Types of  Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Types of Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uses-of-design-patterns">
+   Uses of Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-one-design-pattern-to-understand-together-fit">
+   Select one Design Pattern to understand together
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understand-and-debate-in-the-group-fit">
+   Understand and debate in the group
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-fit">
+   Docker
+   <!-- fit -->
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Web Distributed Systems & Docker 1</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Web Distributed Systems &amp; Docker 1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     23-03-2021
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#agenda">
+       Agenda
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed-systems-fit">
+   Distributed Systems
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#centralized-processing">
+   Centralized processing
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed-system-the-system">
+   Distributed system –
+   <em>
+    The system
+   </em>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed-system-application">
+   Distributed system -
+   <em>
+    Application
+   </em>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#middleware">
+   Middleware
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-of-middleware">
+   Example of Middleware
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-oriented">
+   Communication oriented
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-oriented">
+   Application oriented
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transparency">
+   Transparency
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objective-of-middleware-hides-the-distribution-aspects">
+     Objective of middleware = Hides the distribution aspects
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#possibilities-of-transparency">
+     Possibilities of transparency:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Possibilities of transparency:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transparency-fit">
+   Transparency
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checking-a-form">
+   Checking a form
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enterprise-information-system-eis">
+   Enterprise Information System (
+   <em>
+    EIS
+   </em>
+   )
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typical-properties-of-an-information-system">
+     Typical properties of an information system:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inter-process-communication-ipc">
+   Inter-Process Communication (IPC)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ipc-is-a-mechanism-for-message-exchange-between-processes">
+     IPC is a mechanism for message exchange between processes:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-using-distribution">
+   Why using Distribution?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-main-reason-for-distribution">
+     The main reason for distribution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sharing-of-resources-scalability">
+       Sharing of resources/scalability
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coupling-and-cohesion-fit">
+   Coupling and Cohesion
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connection-between-parts-in-the-system">
+     Connection between parts in the system
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#high-and-low">
+     High and Low
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synchronous-asynchronous">
+     Synchronous - Asynchronous
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#low-coupling">
+   Low Coupling
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ipods-are-a-good-example-of-high-coupling">
+   iPods are a good example of High Coupling
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#once-the-battery-dies-you-might-as-well-buy-a-new-ipod-because-the-battery-is-soldered-fixed-and-wont-come-loose-thus-making-replacing-very-expensive">
+     Once the battery dies you might as well buy a new iPod because the battery is soldered fixed and won’t come loose, thus making replacing very expensive.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-low-coupled-player-would-allow-effortlessly-changing-the-battery">
+     A
+     <strong>
+      Low Coupled
+     </strong>
+     player would allow effortlessly changing the battery.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-aim-for-low-coupling">
+   We aim for
+   <em>
+    Low
+   </em>
+   Coupling
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#high-cohesion">
+   High Cohesion
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asynchronous-fit">
+   Asynchronous
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synchronous-fit">
+   Synchronous
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-fit">
+   Communication
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asynchronous-communication">
+   Asynchronous communication
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synchronous-communication">
+   Synchronous communication
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#false-assumptions-fit">
+   False assumptions
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#false-assumptions">
+   False assumptions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discuss-fit">
+   Discuss
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvc-fit">
+   MVC
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-view-controller">
+     Model-View-Controller
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvc">
+   MVC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-html-mvc">
+   Python - HTML - MVC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#routes">
+   Routes
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models-and-controllers">
+   Models and Controllers
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#views">
+   Views
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvc-summary">
+   MVC Summary
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-fastapi-todo-assignment">
+   API - FastAPI - ToDo Assignment
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-mvc">
+   Links - MVC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discuss-how-to-understand-the-mvc-pattern-fit">
+   Discuss how to understand the MVC pattern
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#design-patterns-fit">
+   Design Patterns
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#well-known-solutions-to-well-known-problems-and-that-is-called-design-patterns-fit">
+     Well-known solutions to well-known problems - And that is called Design Patterns
+     <!-- fit -->
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#design-patterns">
+   Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gang-of-four-design-patterns">
+   Gang Of Four Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benefits-of-the-design-pattern">
+   Benefits of the design pattern
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-design-patterns">
+   Types of  Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Types of Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uses-of-design-patterns">
+   Uses of Design Patterns
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-one-design-pattern-to-understand-together-fit">
+   Select one Design Pattern to understand together
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understand-and-debate-in-the-group-fit">
+   Understand and debate in the group
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-fit">
+   Docker
+   <!-- fit -->
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><img alt="bg right:40% 181%" src="https://github.com/officegeek/image/raw/main/agenda.jpg" /></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="web-distributed-systems-docker-1">
+<h1>Web Distributed Systems &amp; Docker 1<a class="headerlink" href="#web-distributed-systems-docker-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>23-03-2021<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="agenda">
+<h3>Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Distributed Systems</p></li>
+<li><p>Coupling</p></li>
+<li><p>MVC</p></li>
+<li><p>Design Patterns</p></li>
+<li><p>Docker</p></li>
+</ul>
+<!-- _footer: Tue Hellstern © 2021-->
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="distributed-systems-fit">
+<h1>Distributed Systems <!-- fit --><a class="headerlink" href="#distributed-systems-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="centralized-processing">
+<h1>Centralized processing<a class="headerlink" href="#centralized-processing" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>A host computer (<em>often a mainframe</em>) <strong>handles all the processing</strong>, including input, output, data storage and retrieval</p></li>
+<li><p>Predominant computing mode in the 80’s</p>
+<ul>
+<li><p>Combined with very <strong>thin clients</strong> (<em>dumb terminals</em>)</p></li>
+</ul>
+</li>
+<li><p>Still used in many websites and centralized service providers</p></li>
+<li><p><strong>Opposed to Distributed Architecture</strong></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="distributed-system-the-system">
+<h1>Distributed system – <em>The system</em><a class="headerlink" href="#distributed-system-the-system" title="Permalink to this headline">¶</a></h1>
+<p><strong>A distributed system is a system where:</strong></p>
+<ul class="simple">
+<li><p>Hardware and software components are <strong>linked by networked computers</strong> and communicate by exchanging messages and coordinate their actions.</p></li>
+</ul>
+<p><strong>Example</strong> <em>The Internet</em></p>
+<ul class="simple">
+<li><p>Largest connected distributed system</p></li>
+<li><p>Huge merger of heterogeneous computer networks</p></li>
+<li><p>“<em>Glue</em>” are the standardized Internet protocols</p>
+<ul>
+<li><p><strong>IP</strong> (<em>layer 3 protocol</em>) with IP addresses</p></li>
+<li><p><strong>TCP/UDP</strong> (<em>layer 4 protocol</em>)</p></li>
+</ul>
+</li>
+<li><p>Users can use various services, regardless of the location</p></li>
+<li><p>Structuring through sub-networks (<em>intranets</em>) and backbones</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="distributed-system-application">
+<h1>Distributed system - <em>Application</em><a class="headerlink" href="#distributed-system-application" title="Permalink to this headline">¶</a></h1>
+<p><strong>A distributed application is an application, that</strong></p>
+<ul class="simple">
+<li><p>Uses a distributed system to solve an application problem</p></li>
+<li><p>Consists of different components, that communicate with each other, as well as the users.</p></li>
+</ul>
+<p><strong>Examples</strong></p>
+<ul class="simple">
+<li><p>Web service, telnet, ftp</p></li>
+<li><p>Distributed information systems such as</p>
+<ul>
+<li><p>Booking systems</p></li>
+<li><p>Internet/web shops</p></li>
+</ul>
+</li>
+<li><p>Automotive embedded control software</p></li>
+<li><p>Distributed calendars for smartphones</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="middleware">
+<h1>Middleware<a class="headerlink" href="#middleware" title="Permalink to this headline">¶</a></h1>
+<p>It is used by the distributed application as the uniform, high level access interface to the distributed system</p>
+<p><strong>Objective:</strong>
+To hide the distributed aspects of the underlying system</p>
+<ul class="simple">
+<li><p>Typical very complex</p></li>
+<li><p>We distinguish between</p>
+<ul>
+<li><p>Communication-oriented middleware</p></li>
+<li><p>Application-oriented middleware</p></li>
+</ul>
+</li>
+<li><p>It is based on the transport protocol (<em>e.g. TCP</em>) and the access interface to (<em>for example sockets</em>) used in the distributed system</p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:65% 95%" src="https://github.com/officegeek/image/raw/main/middleware.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="example-of-middleware">
+<h1>Example of Middleware<a class="headerlink" href="#example-of-middleware" title="Permalink to this headline">¶</a></h1>
+<p>A distributed system organized via middleware</p>
+<p>The middleware layer extends over multiple machines and offers <strong>each application the same interface</strong></p>
+<!-- _footer: by M. van Steen and A. Tanenbaum, "Distributed Systems"  -->
+<hr class="docutils" />
+<p><img alt="bg right:45% 95%" src="https://github.com/officegeek/image/raw/main/middleware_communication.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="communication-oriented">
+<h1>Communication oriented<a class="headerlink" href="#communication-oriented" title="Permalink to this headline">¶</a></h1>
+<p>It is <strong>directly based on the protocol</strong> of the distributed system</p>
+<ul class="simple">
+<li><p>Services as a communication infrastructure</p></li>
+<li><p>Focuses on pure communication aspects</p></li>
+</ul>
+<p><em>Examples: Sun RPC, Java RMI, MQSeries</em></p>
+<hr class="docutils" />
+<p><img alt="bg right:45% 95%" src="https://github.com/officegeek/image/raw/main/middleware_application.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="application-oriented">
+<h1>Application oriented<a class="headerlink" href="#application-oriented" title="Permalink to this headline">¶</a></h1>
+<p>Is based on the <strong>communication-oriented</strong> middleware</p>
+<p>Expanded to include</p>
+<ul class="simple">
+<li><p>Runtime environment</p></li>
+<li><p>Services</p></li>
+<li><p>Component model</p></li>
+</ul>
+<p><em>Examples: CORBA, J2EE, .Net</em></p>
+<!-- _footer: M. van Steen and A. Tanenbaum, "Distributed Systems"  -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="transparency">
+<h1>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objective-of-middleware-hides-the-distribution-aspects">
+<h2>Objective of middleware = Hides the distribution aspects<a class="headerlink" href="#objective-of-middleware-hides-the-distribution-aspects" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="possibilities-of-transparency">
+<h2>Possibilities of transparency:<a class="headerlink" href="#possibilities-of-transparency" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Location transparency</strong> - <em>For the application it remains largely hidden where a resource someone wants to access, is physically located</em></p></li>
+<li><p><strong>Access transparency</strong> - <em>For the application it is hidden, whether a call is local or remote</em></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h2>Possibilities of transparency:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Concurrency transparency</strong> - For the caller of an application it remains hidden if other calls are processed in parallel (<em>processes or threads</em>)</p></li>
+<li><p><strong>Fault transparency</strong> - Typical errors, which can occur in distributed systems (<em>e.g. a communication error, a component failure</em>) are hidden</p></li>
+<li><p><strong>Replication transparency</strong> - The use of replicas of individual hardware or software components remains transparent to the application</p></li>
+<li><p>Full transparency is <strong>not always</strong> useful</p>
+<ul>
+<li><p>For example, a network printer, error messages</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg right:30%" src="https://github.com/officegeek/image/raw/main/white-question-mark.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="transparency-fit">
+<h1>Transparency <!-- fit --><a class="headerlink" href="#transparency-fit" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Explain why transparency is not useful for a network printer and error-messages</p></li>
+<li><p>Find other examples</p>
+<ul>
+<li><p>Detail which specific factors makes transparency not desired/useful in the examples you identify</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:54% 95%" src="https://github.com/officegeek/image/raw/main/form.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="checking-a-form">
+<h1>Checking a form<a class="headerlink" href="#checking-a-form" title="Permalink to this headline">¶</a></h1>
+<p>The difference between letting a:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Server
+2. Client
+</pre></div>
+</div>
+<p>check forms as they are being filled</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="enterprise-information-system-eis">
+<h1>Enterprise Information System (<em>EIS</em>)<a class="headerlink" href="#enterprise-information-system-eis" title="Permalink to this headline">¶</a></h1>
+<p>Application-oriented middleware which is used mainly in the field of (<em>enterprise</em>) information systems.</p>
+<div class="section" id="typical-properties-of-an-information-system">
+<h2>Typical properties of an information system:<a class="headerlink" href="#typical-properties-of-an-information-system" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Software-Intensive</strong> - Can from thousands to millions of lines of code exis</p></li>
+<li><p><strong>Data-Centric</strong> - Core task of an information system is the management and delivery of data</p></li>
+<li><p><strong>Concurrently</strong> - Many users work in parallel with the application</p></li>
+<li><p><strong>Interactive</strong> - Information systems provide an interactive user interface</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="inter-process-communication-ipc">
+<h1>Inter-Process Communication (IPC)<a class="headerlink" href="#inter-process-communication-ipc" title="Permalink to this headline">¶</a></h1>
+<p><strong>Components</strong> of a distributed application run on <strong>different nodes in different processes/threads</strong>.</p>
+<p>Communication is based on the exchange of messages in the form of bit strings.</p>
+<div class="section" id="ipc-is-a-mechanism-for-message-exchange-between-processes">
+<h2>IPC is a mechanism for message exchange between processes:<a class="headerlink" href="#ipc-is-a-mechanism-for-message-exchange-between-processes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Process</strong> = Object of the operating system</p></li>
+<li><p><strong>Thread</strong> = lightweight process provides applications with secure access to the resources of the computer.</p></li>
+<li><p>Processes are isolated from each other.</p></li>
+<li><p>Thus, two processes can exchange information, they must use interprocess communication.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>There are different technical implementations:</p>
+<ul>
+<li><p>Exchange of information on main memory (local only)</p></li>
+<li><p>Via files</p></li>
+<li><p>Via pipes (local only)</p></li>
+<li><p>Via sockets (local and remote)</p></li>
+</ul>
+</li>
+<li><p>Communication models define the protocol of the IPC.</p></li>
+<li><p>Middleware can be basically divided according to its communication model:</p>
+<ul>
+<li><p>Synchronous communication</p></li>
+<li><p>Asynchronous communication</p></li>
+</ul>
+</li>
+</ul>
+<!-- _footer: Inter-Process Communication (IPC) -->
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="why-using-distribution">
+<h1>Why using Distribution?<a class="headerlink" href="#why-using-distribution" title="Permalink to this headline">¶</a></h1>
+<p>Generally speaking, central, non-distributed applications are:</p>
+<ul class="simple">
+<li><p>Generally <strong>safer</strong></p></li>
+<li><p>Generally <strong>more performant</strong></p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="the-main-reason-for-distribution">
+<h2>The main reason for distribution:<a class="headerlink" href="#the-main-reason-for-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sharing-of-resources-scalability">
+<h3>Sharing of resources/scalability<a class="headerlink" href="#sharing-of-resources-scalability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Sharing of hardware resources</p>
+<ul>
+<li><p>Printers, plotters, scanners</p></li>
+<li><p>Cost savings</p></li>
+</ul>
+</li>
+<li><p>Sharing of data and information</p></li>
+<li><p>File server, database, World Wide Web, search engine</p>
+<ul>
+<li><p>Information exchange</p></li>
+</ul>
+</li>
+<li><p>Sharing functionality</p>
+<ul>
+<li><p>Centralization of functionality</p></li>
+<li><p>Error Prevention</p></li>
+<li><p>Reuse</p></li>
+</ul>
+</li>
+</ul>
+<!-- _footer: Why using Distribution? -->
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="coupling-and-cohesion-fit">
+<h1>Coupling and Cohesion <!-- fit --><a class="headerlink" href="#coupling-and-cohesion-fit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="connection-between-parts-in-the-system">
+<h2>Connection between parts in the system<a class="headerlink" href="#connection-between-parts-in-the-system" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="high-and-low">
+<h2>High and Low<a class="headerlink" href="#high-and-low" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="synchronous-asynchronous">
+<h2>Synchronous - Asynchronous<a class="headerlink" href="#synchronous-asynchronous" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><img alt="bg right:30% 280%" src="https://github.com/officegeek/image/raw/main/programming.jpeg" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="low-coupling">
+<h1>Low Coupling<a class="headerlink" href="#low-coupling" title="Permalink to this headline">¶</a></h1>
+<p>How much do your different modules <strong>depend on each other</strong>?</p>
+<p>Modules should be as <strong>independent as possible</strong> from other modules, so that changes to module don’t heavily impact other modules.</p>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="ipods-are-a-good-example-of-high-coupling">
+<h1>iPods are a good example of High Coupling<a class="headerlink" href="#ipods-are-a-good-example-of-high-coupling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="once-the-battery-dies-you-might-as-well-buy-a-new-ipod-because-the-battery-is-soldered-fixed-and-wont-come-loose-thus-making-replacing-very-expensive">
+<h2>Once the battery dies you might as well buy a new iPod because the battery is soldered fixed and won’t come loose, thus making replacing very expensive.<a class="headerlink" href="#once-the-battery-dies-you-might-as-well-buy-a-new-ipod-because-the-battery-is-soldered-fixed-and-wont-come-loose-thus-making-replacing-very-expensive" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="a-low-coupled-player-would-allow-effortlessly-changing-the-battery">
+<h2>A <strong>Low Coupled</strong> player would allow effortlessly changing the battery.<a class="headerlink" href="#a-low-coupled-player-would-allow-effortlessly-changing-the-battery" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><img alt="bg right:30% 280%" src="https://github.com/officegeek/image/raw/main/programming.jpeg" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="we-aim-for-low-coupling">
+<h1>We aim for <em>Low</em> Coupling<a class="headerlink" href="#we-aim-for-low-coupling" title="Permalink to this headline">¶</a></h1>
+<p>This can be obtained via encapsulation:</p>
+<ul class="simple">
+<li><p>Objects</p></li>
+<li><p>Layers</p></li>
+<li><p>Tasks</p></li>
+</ul>
+<p><strong>=&gt; As few dependencies as possible</strong>
+<strong>=&gt; As easy to manage connections as possible</strong>
+<strong>=&gt; As easy to maintain as possible</strong></p>
+<hr class="docutils" />
+<p><img alt="bg right:30% 280%" src="https://github.com/officegeek/image/raw/main/programming.jpeg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="high-cohesion">
+<h1>High Cohesion<a class="headerlink" href="#high-cohesion" title="Permalink to this headline">¶</a></h1>
+<p>Cohesion often refers to how the elements of a module belong together. Related code should be close to each other to make it highly cohesive.</p>
+<p>Easy to maintain code usually has high cohesion. The elements within the module are directly related to the functionality that module is meant to provide.</p>
+<hr class="docutils" />
+<p><img alt="bg 80%" src="https://github.com/officegeek/image/raw/main/coupling_cohesion.png" /></p>
+<hr class="docutils" />
+<p><img alt="bg 97%" src="https://github.com/officegeek/image/raw/main/python_coupling.jpg" /></p>
+<!-- _footer: Python Example https://github.com/officegeek/image/raw/main/code/Tight_and_Loos_Coupling.ipynb -->
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="asynchronous-fit">
+<h1>Asynchronous <!-- fit --><a class="headerlink" href="#asynchronous-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="synchronous-fit">
+<h1>Synchronous <!-- fit --><a class="headerlink" href="#synchronous-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="communication-fit">
+<h1>Communication <!-- fit --><a class="headerlink" href="#communication-fit" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p><img alt="bg right:24% 95%" src="https://github.com/officegeek/image/raw/main/Asynchronous_communication.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="asynchronous-communication">
+<h1>Asynchronous communication<a class="headerlink" href="#asynchronous-communication" title="Permalink to this headline">¶</a></h1>
+<p>Sender is <strong>not blocked</strong>, the process may, <strong>after sending</strong> the message, <strong>continue</strong> immediately</p>
+<p><strong>Answers are optional</strong></p>
+<ul class="simple">
+<li><p>The sender receives on occasion the result asynchronously</p></li>
+<li><p>The sender gets active on occasion</p></li>
+<li><p>Implementation uses in general queues</p></li>
+</ul>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>It is more complicated to implement, but more efficient</p></li>
+<li><p><strong>Loose coupling</strong> of processes</p></li>
+<li><p>Lower error dependency</p></li>
+<li><p>Receiver does not need to be available to receive</p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:24% 95%" src="https://github.com/officegeek/image/raw/main/Synchronous_communication.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="synchronous-communication">
+<h1>Synchronous communication<a class="headerlink" href="#synchronous-communication" title="Permalink to this headline">¶</a></h1>
+<p>Transmitter and <strong>receiver block</strong> when executing the <strong>Send</strong> or <strong>Receive</strong> operation</p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>Tight coupling between the transmitter and receiver with all its advantages and disadvantages</p></li>
+<li><p>High dependence especially in case of failure</p></li>
+</ul>
+<p><strong>Prerequisite</strong></p>
+<ul class="simple">
+<li><p>Secure and fast network connections are available</p></li>
+<li><p>Receiving process is available</p></li>
+</ul>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="false-assumptions-fit">
+<h1>False assumptions <!-- fit --><a class="headerlink" href="#false-assumptions-fit" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="false-assumptions">
+<h1>False assumptions<a class="headerlink" href="#false-assumptions" title="Permalink to this headline">¶</a></h1>
+<p>Developers making programs <strong>sometimes make the mistake to assume things</strong>.
+When this happens, the program run into problems, and this can have some problematic consequences.</p>
+<ul class="simple">
+<li><p>The network is reliable</p></li>
+<li><p>The network is secure</p></li>
+<li><p>The network is homogeneous</p></li>
+<li><p>The topology does not change</p></li>
+<li><p>Latency is zero</p></li>
+<li><p>Bandwidth is infinite</p></li>
+<li><p>Transport cost is zero</p></li>
+<li><p>There is one administrator</p></li>
+</ul>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg right:30%" src="https://github.com/officegeek/image/raw/main/white-question-mark.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="discuss-fit">
+<h1>Discuss <!-- fit --><a class="headerlink" href="#discuss-fit" title="Permalink to this headline">¶</a></h1>
+<p><strong>What happens when the assumption is <em>not</em> true ?</strong></p>
+<ul class="simple">
+<li><p>Make a list of examples, to show you understand when it is <u><em>not</em></u> true</p></li>
+<li><p>Make a list of consequences, what’s the result in those situations</p></li>
+</ul>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mvc-fit">
+<h1>MVC <!-- fit --><a class="headerlink" href="#mvc-fit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="model-view-controller">
+<h2>Model-View-Controller<a class="headerlink" href="#model-view-controller" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><img alt="bg right:50% 80%" src="https://github.com/officegeek/image/raw/main/mvc_1.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mvc">
+<h1>MVC<a class="headerlink" href="#mvc" title="Permalink to this headline">¶</a></h1>
+<p><strong>M</strong>odel–<strong>V</strong>iew–<strong>C</strong>ontroller is a <strong>software design pattern</strong> commonly used for developing user interfaces that divides the related program logic into three <strong>interconnected</strong> elements.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="python-html-mvc">
+<h1>Python - HTML - MVC<a class="headerlink" href="#python-html-mvc" title="Permalink to this headline">¶</a></h1>
+<p>When building a web app, you define what are known as routes.</p>
+<p>Routes are, essentially, URL patterns associated with different pages. So when someone enters a URL, behind the scenes, the application tries to match that URL to one of these predefined routes.</p>
+<p>There are four major components in play:</p>
+<ul class="simple">
+<li><p>Routes</p></li>
+<li><p><strong>M</strong>odels</p></li>
+<li><p><strong>V</strong>iews</p></li>
+<li><p><strong>C</strong>ontrollers</p></li>
+</ul>
+<!-- _footer: Python - HTML - MVC -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="routes">
+<h1>Routes<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h1>
+<p>Each route is associated with a controller - more specifically, a certain function within a controller, known as a <strong>controller action</strong>.</p>
+<p>So when you enter a URL, the application attempts to find a <strong>matching route</strong>, and, if it’s <em>successful</em>, it calls that <strong>route’s associated controller</strong> action.</p>
+<p><strong>Python - Flask example</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@app.route(&#39;/&#39;)
+def main_page():
+    pass
+</pre></div>
+</div>
+<p>Here we establish the <strong>/</strong> route associated with the <strong>main_page()</strong> view function.</p>
+<!-- _footer: Python - HTML - MVC -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="models-and-controllers">
+<h1>Models and Controllers<a class="headerlink" href="#models-and-controllers" title="Permalink to this headline">¶</a></h1>
+<p>Within the controller action, <strong>two main things</strong> typically occur:</p>
+<ul class="simple">
+<li><p>The models are used to <strong>retrieve</strong> all of the necessary <strong>data</strong> from a database</p></li>
+<li><p>Data is passed to a view, which renders the <strong>requested page</strong></p></li>
+</ul>
+<p>The data retrieved via the models is generally added to a data structure (<em>like a list or dictionary</em>), and that structure is what’s sent to the view.</p>
+<!-- _footer: Python - HTML - MVC -->
+<hr class="docutils" />
+<p><strong>Python - Flask example</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@app.route(&#39;/&#39;)
+def main_page():
+    &quot;&quot;&quot;Searches the database for entries, then displays them.&quot;&quot;&quot;
+    db = get_db()
+    cur = db.execute(&#39;select * from entries order by id desc&#39;)
+    entries = cur.fetchall()
+    return render_template(&#39;index.html&#39;, entries=entries)
+</pre></div>
+</div>
+<p>Now within the view function, we <strong>grab data from the database</strong> and perform some basic logic.</p>
+<p>This returns a list, which we assign to the variable entries, that is accessible within the <strong>index.html</strong> template.</p>
+<!-- _footer: Python - HTML - MVC -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="views">
+<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
+<p>In the view, that structure of data is accessed and the information contained within is used to render the HTML content of the page the user ultimately sees in their browser.</p>
+<p>Again, back to our Flask app, we can loop through the entries, displaying each one using the <a class="reference external" href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja</a> syntax:</p>
+<p><strong>HTML</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{% for entry in entries %}
+&lt;li&gt;
+    &lt;h2&gt;{{ entry.title }}&lt;/h2&gt;
+    &lt;div&gt;{{ entry.text|safe }}&lt;/div&gt;
+&lt;/li&gt;
+{% else %}
+&lt;li&gt;&lt;em&gt;No entries yet. Add some!&lt;/em&gt;&lt;/li&gt;
+{% endfor %}
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="mvc-summary">
+<h1>MVC Summary<a class="headerlink" href="#mvc-summary" title="Permalink to this headline">¶</a></h1>
+<p><strong>MVC request process is as follows</strong></p>
+<ul class="simple">
+<li><p>A user requests to view a page by entering a URL</p></li>
+<li><p>The application matches the URL to a predefined <strong>route</strong></p></li>
+<li><p>The <strong>controller action</strong> associated with the route is called</p></li>
+<li><p>The controller action uses the <strong>models</strong> to retrieve all of the necessary data from a database, places the data in an array, and loads a <strong>view</strong>, passing along the data structure</p></li>
+<li><p>The <strong>view</strong> accesses the structure of data and uses it to render the requested page, which is then presented to the user in their browser</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="api-fastapi-todo-assignment">
+<h1>API - FastAPI - ToDo Assignment<a class="headerlink" href="#api-fastapi-todo-assignment" title="Permalink to this headline">¶</a></h1>
+<p><img alt="bg right:60% 70%" src="https://github.com/officegeek/image/raw/main/todo_1.png" /></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/officegeek/image/raw/main/pdf/FastApi_ToDo.pdf">FastApi_ToDo.pdf</a></p></li>
+<li><p><a class="reference external" href="https://github.com/officegeek/image/raw/main/code/main.py">main.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/officegeek/image/raw/main/code/todolist.html">todolist.html</a></p></li>
+<li><p><a class="reference external" href="https://github.com/officegeek/image/raw/main/code/database.json">database.json</a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="links-mvc">
+<h1>Links - MVC<a class="headerlink" href="#links-mvc" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.tutorialsteacher.com/mvc/mvc-architecture">www.tutorialsteacher.com/mvc/mvc-architecture</a></p></li>
+<li><p><a class="reference external" href="https://www.tutorialspoint.com/mvc_framework/mvc_framework_introduction.htm">https://www.tutorialspoint.com/mvc_framework/mvc_framework_introduction.htm</a> - Only the Introduction rest is <a class="reference external" href="http://ASP.net">ASP.net</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><img alt="bg right:50% 170%" src="https://github.com/officegeek/image/raw/main/MVC_Ruby.png" />
+<a class="reference external" href="https://youtu.be/eTdVkgF_Slo">Understanding MVC architecture</a></p>
+<!-- _footer: https://youtu.be/eTdVkgF_Slo -->
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg right:20% 170%" src="https://github.com/officegeek/image/raw/main/white-question-mark.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="discuss-how-to-understand-the-mvc-pattern-fit">
+<h1>Discuss how to understand the MVC pattern <!-- fit --><a class="headerlink" href="#discuss-how-to-understand-the-mvc-pattern-fit" title="Permalink to this headline">¶</a></h1>
+<p><strong>Explain in your own words</strong></p>
+<ul class="simple">
+<li><p>What does each part do?</p></li>
+<li><p>Think of the programs you have created in Python – what would you have to do to change it into MVC style?</p></li>
+</ul>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="design-patterns-fit">
+<h1>Design Patterns <!-- fit --><a class="headerlink" href="#design-patterns-fit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="well-known-solutions-to-well-known-problems-and-that-is-called-design-patterns-fit">
+<h2>Well-known solutions to well-known problems - And that is called Design Patterns <!-- fit --><a class="headerlink" href="#well-known-solutions-to-well-known-problems-and-that-is-called-design-patterns-fit" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><img alt="bg left:40% 297%" src="https://github.com/officegeek/image/raw/main/designpatterns_words.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="design-patterns">
+<h1>Design Patterns<a class="headerlink" href="#design-patterns" title="Permalink to this headline">¶</a></h1>
+<p>In software engineering, a design pattern is a <strong>general repeatable solution</strong> to a commonly <strong>occurring problem</strong> in software design.</p>
+<p>A design pattern <strong>isn’t a finished design</strong> that can be transformed directly into code.</p>
+<p>It is a description or <strong>template</strong> for how to <strong>solve a problem</strong> that can be used in many different situations.</p>
+<!-- _footer: https://sourcemaking.com/design_patterns -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="gang-of-four-design-patterns">
+<h1>Gang Of Four Design Patterns<a class="headerlink" href="#gang-of-four-design-patterns" title="Permalink to this headline">¶</a></h1>
+<p><strong>Elements of Reusable Object-Oriented Software(1994)</strong> written by <em>Erich Gamma, Richard Helm, Ralph Johnson</em>, and <em>John Vlissides</em> is a book on software engineering highlighting the capabilities and pitfalls of object-oriented programming.</p>
+<p>They have listed <strong>23 classic software design patterns</strong> which are influential even in the current software development environment.</p>
+<p>The authors are often referred to as the <strong>Gang of Four</strong>.</p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="benefits-of-the-design-pattern">
+<h1>Benefits of the design pattern<a class="headerlink" href="#benefits-of-the-design-pattern" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Design patterns can <strong>speed up the development</strong> process by providing tested, proven development paradigms.</p></li>
+<li><p>Reusing the design patterns helps to <strong>prevent</strong> subtle issues that can cause major <strong>problems</strong> and it also improves code readability</p></li>
+<li><p>Design pattern provides <strong>general solutions</strong>, documented in a format that doesn’t specifics tied to a particular problem</p></li>
+<li><p>In addition to that patterns allows developers to <strong>communicate</strong> well-known, well-understood names for software interactions,</p></li>
+<li><p>Common design patterns can be <strong>improved over time</strong>, making them more robust than ad-hoc design</p></li>
+<li><p>A standard solution to a common programming problem enables large scale <strong>reuse of software</strong></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="types-of-design-patterns">
+<h1>Types of  Design Patterns<a class="headerlink" href="#types-of-design-patterns" title="Permalink to this headline">¶</a></h1>
+<p>The 23 design patterns have been categorized into <strong>3</strong> verticals:</p>
+<ol class="simple">
+<li><p><strong>Creational</strong> - Deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.</p></li>
+<li><p><strong>Structural</strong> - Deal with easing the design by identifying a simple way to realize relationships among entities.</p></li>
+<li><p><strong>Behavioural</strong> - Deal with</p></li>
+</ol>
+<hr class="docutils" />
+<p><img alt="bg right:71% 47%" src="https://github.com/officegeek/image/raw/main/Types_of_design_patterns.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id3">
+<h1>Types of Design Patterns<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Creational</p></li>
+<li><p>Structural</p></li>
+<li><p>Behavioural</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="uses-of-design-patterns">
+<h1>Uses of Design Patterns<a class="headerlink" href="#uses-of-design-patterns" title="Permalink to this headline">¶</a></h1>
+<p>Design patterns can <strong>speed up the development</strong> process by providing tested, proven development paradigms.</p>
+<p>Effective software design requires considering issues that may not become visible until later in the implementation.</p>
+<p>Reusing design patterns helps to <strong>prevent</strong> subtle issues that can cause major <strong>problems</strong> and <strong>improves code readability</strong> for coders and architects familiar with the patterns.</p>
+<!-- _footer: https://sourcemaking.com/design_patterns -->
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg right:20% 170%" src="https://github.com/officegeek/image/raw/main/white-question-mark.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="select-one-design-pattern-to-understand-together-fit">
+<h1>Select one Design Pattern to understand together <!-- fit --><a class="headerlink" href="#select-one-design-pattern-to-understand-together-fit" title="Permalink to this headline">¶</a></h1>
+<p>You can use - <a class="reference external" href="https://sourcemaking.com/design_patterns">https://sourcemaking.com/design_patterns</a> - as a starting point.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="understand-and-debate-in-the-group-fit">
+<h1>Understand and debate in the group <!-- fit --><a class="headerlink" href="#understand-and-debate-in-the-group-fit" title="Permalink to this headline">¶</a></h1>
+<p><em>This is not an easy assignment. - Don’t panic if you can not understand all details. Try to grab the main idea and then use your common sense.</em></p>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-fit">
+<h1>Docker <!-- fit --><a class="headerlink" href="#docker-fit" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p><img alt="bg" src="https://github.com/officegeek/image/raw/main/what_docker.jpg" /></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4-sem\05-Distribuerede_systemer"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker &#8212; Teaching Kea</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Teaching Kea</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to my teaching page at Kea
+  </a>
+ </li>
+</ul>
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/4-sem/04-Docker_2/Docker.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://officegeek.github.io/ida-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://officegeek.github.io/ida-python//issues/new?title=Issue%20on%20page%20%2F4-sem/04-Docker_2/Docker.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-docker-a-virtual-machine">
+   Is Docker a virtual machine?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-platform-fit">
+   Docker Platform
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-engine-fit">
+   Docker Engine
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-client-fit">
+   Docker Client
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-docker-desktop">
+   Docker Docker Desktop
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows-and-mac">
+     Windows and Mac
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hello-world">
+   Hello World
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubuntu-docker">
+   Ubuntu Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-jupyter-lab-with-pip">
+   Install Jupyter Lab with pip
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-jupyter-lab">
+   Run Jupyter Lab
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mongodb">
+   MongoDB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-101-tutorial">
+   Docker 101 Tutorial
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-engine-ubuntu-fit">
+   Docker Engine - Ubuntu
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-docker-on-ubuntu-fit">
+     Install Docker on Ubuntu
+     <!-- fit -->
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#update-software-repositories">
+       Update Software Repositories
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-docker-fit">
+       Install Docker
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#start-and-automate-docker-fit">
+       Start and Automate Docker
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verifying-the-installation-fit">
+       Verifying the Installation
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-docker-version-fit">
+       Check Docker Version
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uninstalling-docker-fit">
+       Uninstalling Docker
+       <!-- fit -->
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-developing-fit">
+   Docker commands :: Developing
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-running-fit">
+   Docker commands :: Running
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-utilities-fit">
+   Docker commands :: Utilities
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-cleaning-fit">
+   Docker commands :: Cleaning
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links">
+   Links
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Docker</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-docker-a-virtual-machine">
+   Is Docker a virtual machine?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-platform-fit">
+   Docker Platform
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-engine-fit">
+   Docker Engine
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-client-fit">
+   Docker Client
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-docker-desktop">
+   Docker Docker Desktop
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows-and-mac">
+     Windows and Mac
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hello-world">
+   Hello World
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubuntu-docker">
+   Ubuntu Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-jupyter-lab-with-pip">
+   Install Jupyter Lab with pip
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-jupyter-lab">
+   Run Jupyter Lab
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mongodb">
+   MongoDB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-101-tutorial">
+   Docker 101 Tutorial
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-engine-ubuntu-fit">
+   Docker Engine - Ubuntu
+   <!-- fit -->
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-docker-on-ubuntu-fit">
+     Install Docker on Ubuntu
+     <!-- fit -->
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#update-software-repositories">
+       Update Software Repositories
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-docker-fit">
+       Install Docker
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#start-and-automate-docker-fit">
+       Start and Automate Docker
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verifying-the-installation-fit">
+       Verifying the Installation
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-docker-version-fit">
+       Check Docker Version
+       <!-- fit -->
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uninstalling-docker-fit">
+       Uninstalling Docker
+       <!-- fit -->
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-developing-fit">
+   Docker commands :: Developing
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-running-fit">
+   Docker commands :: Running
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-utilities-fit">
+   Docker commands :: Utilities
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-commands-cleaning-fit">
+   Docker commands :: Cleaning
+   <!-- fit -->
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links">
+   Links
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><img alt="bg" src="https://github.com/officegeek/image/raw/main/what_docker.jpg" /></p>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Docker is an <strong>Open Platform</strong> for developing, shipping, and running applications.</p></li>
+<li><p>Docker is a set of platform as a service (<em>PaaS</em>) products that use OS-level virtualization to <strong>deliver software in packages called containers</strong>.</p></li>
+<li><p>Containers are <strong>isolated</strong> from one another and bundle their own software, libraries and configuration files. They communicate with each other through well-defined channels.</p></li>
+<li><p>Docker enables you to <strong>separate your applications from your infrastructure</strong> so you can deliver software quickly.</p></li>
+<li><p>With Docker, you can <strong>manage your infrastructure</strong> in the same ways you manage your <strong>applications</strong>.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="is-docker-a-virtual-machine">
+<h1>Is Docker a virtual machine?<a class="headerlink" href="#is-docker-a-virtual-machine" title="Permalink to this headline">¶</a></h1>
+<p>Docker is container based technology and containers are just user space of the operating system.</p>
+<ul class="simple">
+<li><p>In <strong>Docker</strong>, the containers running share the host OS kernel. <strong>Isolates at the software level</strong></p></li>
+<li><p>A <strong>Virtual Machine</strong>, on the other hand, is <strong>not</strong> based on container technology. They are made up of user space plus kernel space of an operating system. <strong>Isolates at the hardware level</strong></p></li>
+</ul>
+<p><img alt="bg: 30%" src="https://github.com/officegeek/image/raw/main/docker_vs_virtual_1.jpg" /></p>
+<hr class="docutils" />
+<p><img alt="bg" src="https://github.com/officegeek/image/raw/main/docker_ecosystem.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-platform-fit">
+<h1>Docker Platform <!-- fit --><a class="headerlink" href="#docker-platform-fit" title="Permalink to this headline">¶</a></h1>
+<p><strong>Docker Platform</strong> is Docker’s software that provides the ability to package and run an application in a container on any computer platform.</p>
+<p>Docker Platform bundles code files and dependencies. It promotes <strong>easy scaling</strong> by enabling portability and reproducibility.</p>
+<p><img alt="bg left:35% 110%" src="https://github.com/officegeek/image/raw/main/docker_logo.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-engine-fit">
+<h1>Docker Engine <!-- fit --><a class="headerlink" href="#docker-engine-fit" title="Permalink to this headline">¶</a></h1>
+<p><strong>Docker Engine</strong> is the client-server application. The Docker company divides the Docker Engine into two products:</p>
+<ul class="simple">
+<li><p>Docker Community Edition (<em>CE</em>) is free and largely based on open source tools.</p></li>
+<li><p>Docker Enterprise comes with additional support, management, and security features. <em>Enterprise is how Docker earns money</em> - <a class="reference external" href="http://www.docker.com/pricing">www.docker.com/pricing</a></p></li>
+</ul>
+<p><img alt="bg left:35% 110%" src="https://github.com/officegeek/image/raw/main/docker_engine.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-client-fit">
+<h1>Docker Client <!-- fit --><a class="headerlink" href="#docker-client-fit" title="Permalink to this headline">¶</a></h1>
+<p>Docker Client is the <strong>primary way</strong> you’ll interact with Docker.</p>
+<p>When you use the Docker Command Line Interface (<em>CLI</em>) you type a command into your terminal that starts with docker.</p>
+<p>Docker Client then uses the Docker API to send the command to the Docker Daemon.</p>
+<p><img alt="bg right:50% 90%" src="https://github.com/officegeek/image/raw/main/docker_clinet.png" /></p>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg right:60% 90%" src="https://github.com/officegeek/image/raw/main/Docker_Desktop.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-docker-desktop">
+<h1>Docker Docker Desktop<a class="headerlink" href="#docker-docker-desktop" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="windows-and-mac">
+<h2>Windows and Mac<a class="headerlink" href="#windows-and-mac" title="Permalink to this headline">¶</a></h2>
+<p><em>The fastest way to containerize applications on your desktop</em></p>
+<p><a class="reference external" href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
+<hr class="docutils" />
+<p><img alt="bg right:60% 100%" src="https://github.com/officegeek/image/raw/main/Docker_helloWorld.jpg" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="hello-world">
+<h1>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run hello-world 
+</pre></div>
+</div>
+<p>Example of <strong>minimal Dockerization</strong></p>
+<!-- _footer: https://hub.docker.com/_/hello-world -->
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="ubuntu-docker">
+<h1>Ubuntu Docker<a class="headerlink" href="#ubuntu-docker" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull ubuntu
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="install-jupyter-lab-with-pip">
+<h1>Install Jupyter Lab with pip<a class="headerlink" href="#install-jupyter-lab-with-pip" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>apt update
+apt upgrade
+apt install python3
+
+python3 --version
+
+apt install python3-pip
+
+pip3 install jupyterlab
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><img alt="bg right:61% 100%" src="https://github.com/officegeek/image/raw/main/JupyterLab_cli_access.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="run-jupyter-lab">
+<h1>Run Jupyter Lab<a class="headerlink" href="#run-jupyter-lab" title="Permalink to this headline">¶</a></h1>
+<p>jupyter lab –allow-root</p>
+<hr class="docutils" />
+<p><img alt="bg right:40% 80%" src="https://github.com/officegeek/image/raw/main/MongoDB_Logo.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mongodb">
+<h1>MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h1>
+<p>MongoDB document databases provide high availability and easy scalability.</p>
+<p>Demo including network access</p>
+<!-- _footer: https://hub.docker.com/_/mongo -->
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg right:54% 95%" src="https://github.com/officegeek/image/raw/main/Play_with_docker.jpg" />
+<a class="reference external" href="https://labs.play-with-docker.com">https://labs.play-with-docker.com</a></p>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg right:50% 95%" src="https://github.com/officegeek/image/raw/main/Docker_learn.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-101-tutorial">
+<h1>Docker 101 Tutorial<a class="headerlink" href="#docker-101-tutorial" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.docker.com/101-tutorial">https://www.docker.com/101-tutorial</a></p>
+<hr class="docutils" />
+<!-- _backgroundColor: black -->
+<!-- _color: white -->
+<p><img alt="bg 90%" src="https://github.com/officegeek/image/raw/main/docker_ubuntu.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-engine-ubuntu-fit">
+<h1>Docker Engine - Ubuntu <!-- fit --><a class="headerlink" href="#docker-engine-ubuntu-fit" title="Permalink to this headline">¶</a></h1>
+<p><strong>Docker Engine - Ubuntu</strong> (Community) is the best way to install the Docker platform on Ubuntu Linux environments.</p>
+<p>Simplify provisioning and setup of Docker and accelerate your time to value in building and deploying container based applications.</p>
+<p>Install Docker Engine on Ubuntu - <a class="reference external" href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<hr class="docutils" />
+<div class="section" id="install-docker-on-ubuntu-fit">
+<h2>Install Docker on Ubuntu <!-- fit --><a class="headerlink" href="#install-docker-on-ubuntu-fit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="update-software-repositories">
+<h3>Update Software Repositories<a class="headerlink" href="#update-software-repositories" title="Permalink to this headline">¶</a></h3>
+<p>It’s a good idea to update the local database of software to make sure you’ve got access to the latest revisions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="install-docker-fit">
+<h3>Install Docker <!-- fit --><a class="headerlink" href="#install-docker-fit" title="Permalink to this headline">¶</a></h3>
+<p>To install Docker on Ubuntu</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="start-and-automate-docker-fit">
+<h3>Start and Automate Docker <!-- fit --><a class="headerlink" href="#start-and-automate-docker-fit" title="Permalink to this headline">¶</a></h3>
+<p>The Docker service needs to be setup to run at startup.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl start docker
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl <span class="nb">enable</span> docker
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="verifying-the-installation-fit">
+<h3>Verifying the Installation <!-- fit --><a class="headerlink" href="#verifying-the-installation-fit" title="Permalink to this headline">¶</a></h3>
+<p>To verify that Docker has been successfully installed and that you can execute the docker command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker container run hello-world
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="check-docker-version-fit">
+<h3>Check Docker Version <!-- fit --><a class="headerlink" href="#check-docker-version-fit" title="Permalink to this headline">¶</a></h3>
+<p>To verify the installed Docker version number, enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker --version
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="uninstalling-docker-fit">
+<h3>Uninstalling Docker <!-- fit --><a class="headerlink" href="#uninstalling-docker-fit" title="Permalink to this headline">¶</a></h3>
+<p>The following commands stops all running containers and remove all docker objects</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker container stop <span class="k">$(</span>docker container ls -aq<span class="k">)</span>
+docker system prune -a --volumes
+</pre></div>
+</div>
+<p>You can now uninstall Docker as any other package installed with apt.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt purge docker-ce
+sudo apt autoremove
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><img alt="bg" src="https://github.com/officegeek/image/raw/main/docker-commands.jpg" /></p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-commands-developing-fit">
+<h1>Docker commands :: Developing <!-- fit --><a class="headerlink" href="#docker-commands-developing-fit" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>docker create [image]</strong>: Create a new container from a particular image</p></li>
+<li><p><strong>docker login</strong>: Log into the Docker Hub repository.</p></li>
+<li><p><strong>docker pull [image]</strong>: Pull an image from the Docker Hub repository</p></li>
+<li><p><strong>docker push [username/image]</strong>: Push an image to the Docker Hub repository</p></li>
+<li><p><strong>docker search [term]</strong>: Search the Docker Hub repository for a particular term</p></li>
+<li><p><strong>docker tag [source] [target]</strong>: Create a target tag or alias that refers to a source image</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-commands-running-fit">
+<h1>Docker commands :: Running <!-- fit --><a class="headerlink" href="#docker-commands-running-fit" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>docker start [container]</strong>: Start a particular container</p></li>
+<li><p><strong>docker stop [container]</strong>: Stop a particular container</p></li>
+<li><p><strong>docker exec -ti [container] [command]</strong>: Run a shell command inside a particular container</p></li>
+<li><p><strong>docker run -ti — image [image] [container] [command]</strong>: Create and start a container at the same time, and then run a command inside it</p></li>
+<li><p><strong>docker run -ti — rm — image [image] [container] [command]</strong>: Create and start a container at the same time, run a command inside it, and then remove the container after executing the command</p></li>
+<li><p><strong>docker pause [container]</strong>: Pause all processes running within a particular container</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-commands-utilities-fit">
+<h1>Docker commands :: Utilities <!-- fit --><a class="headerlink" href="#docker-commands-utilities-fit" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>docker history [image]</strong>: Display the history of a particular image</p></li>
+<li><p><strong>docker images</strong>: List all of the images that are currently stored on the system</p></li>
+<li><p><strong>docker inspect [object]</strong>: Display low-level information about a particular Docker object</p></li>
+<li><p><strong>docker ps</strong>: List all of the containers that are currently running</p></li>
+<li><p><strong>docker version</strong>: Display the version of Docker that is currently installed on the system</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-commands-cleaning-fit">
+<h1>Docker commands :: Cleaning <!-- fit --><a class="headerlink" href="#docker-commands-cleaning-fit" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>docker kill [container]</strong>: Kill a particular container</p></li>
+<li><p><strong>docker kill $(docker ps -q)</strong>: Kill all containers that are currently running</p></li>
+<li><p><strong>docker rm [container]</strong>: Delete a particular container that is not currently running</p></li>
+<li><p><strong>docker rm $(docker ps -a -q)</strong>: Delete all containers that are not currently running</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="links">
+<h1>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.docker.com">www.docker.com</a></p></li>
+<li><p><a class="reference external" href="http://www.docker.com/101-tutorial">www.docker.com/101-tutorial</a></p></li>
+<li><p><a class="reference external" href="http://docs.docker.com/get-started">docs.docker.com/get-started</a></p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./4-sem\04-Docker_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Tue Hellstern<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
