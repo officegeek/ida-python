@@ -1,4 +1,4 @@
-# Python programmering - Grundlæggende - IDA
+# Python Grundlæggende
 Dette seminar er for dig, der gerne vil have en introduktion til Python.
 
 Python er et af de mest brugte programmeringssprog. 
