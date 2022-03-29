@@ -3,7 +3,10 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: ./introduktion/markdown
-- file: ./videregående/
-- file: markdown-notebooks
+parts:
+  - caption: Introduktion
+    chapters:
+    - file: ./introduktion/markdown
+  - caption: Videregående
+    chapters:
+    - file: ./videregående/README
