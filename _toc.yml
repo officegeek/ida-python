@@ -4,6 +4,9 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Grundlæggende
+    chapters:
+    - file: grundlæggende/README.md
   - caption: Videregående
     chapters:
     - file: videregående/README.md

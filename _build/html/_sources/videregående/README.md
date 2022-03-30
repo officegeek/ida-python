@@ -1,4 +1,4 @@
-# Python programmering - Videregående - IDA
+# Python Videregående
 Dette seminar er for dig, der gerne vil vide mere om Python.
 
 Python er et af de mest brugte programmeringssprog. 
